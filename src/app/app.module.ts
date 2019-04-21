@@ -12,6 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatCardModule,
     MatInputModule,
     CarouselModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    AlertModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

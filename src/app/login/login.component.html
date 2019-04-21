@@ -25,14 +25,21 @@
               <input matInput placeholder="Username" >{{userNameWithDomain}}
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput type="password" placeholder="password" >{{loginCredentials.password}}
+                <input matInput type="password" placeholder="password" >{{password}}
               </mat-form-field>
           </form>
     </mat-card-content>
     <mat-card-actions>
         <button type="button"class="btn btn-info btn-xl"
         tooltip="Login to enter Home Page"  (click)="Login()">  Login  </button>
-     
+       <div> <alert type="success">
+            <strong>Well done!</strong> You successfully Logged in.
+          </alert>
+          </div>
+       <div> <alert type="danger">
+            <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+          </alert>
+          </div>
      <!-- <button mat-button color="primary">Forgot password</button>-->
       
     </mat-card-actions>

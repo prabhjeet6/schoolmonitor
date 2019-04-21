@@ -7,7 +7,7 @@ import { LoginCredentials } from 'src/app/login-credentials';
 export class LoginService {
 
   constructor() { }
-  Login(loginCredentials:LoginCredentials):void{
-
+  Login(loginCredentials:LoginCredentials):boolean{
+  return true;
   }
 }
