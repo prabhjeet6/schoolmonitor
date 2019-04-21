@@ -2,10 +2,15 @@
 <div class="main-div" > 
     
        
+   <!-- <carousel>
+        <slide>
+          <img class="img-responsive center-block"src="../assets/login Corousel.jpeg" alt="first slide" style="display: block; width: 100%;">
+        </slide>
+    </carousel>-->
     
 <mat-card  class="z-depth center" flex="50" >
 
-  
+    
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title><p class="text-center">Welcome to SchoolMonitor!</p></mat-card-title>
@@ -17,18 +22,19 @@
       
         <form class="example-form">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" >
+              <input matInput placeholder="Username" >{{userNameWithDomain}}
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput type="password" placeholder="password" >
+                <input matInput type="password" placeholder="password" >{{loginCredentials.password}}
               </mat-form-field>
           </form>
     </mat-card-content>
     <mat-card-actions>
-      <!--<button mat-raised-button color="primary">Login</button>
-      <button mat-button color="primary">Forgot password</button>-->
-      <nav><a routerLink="/homePage">Login</a>
-        <a routerLink="/forgotPassword">forgot Password</a></nav>
+        <button type="button"class="btn btn-info btn-xl"
+        tooltip="Login to enter Home Page"  (click)="Login()">  Login  </button>
+     
+     <!-- <button mat-button color="primary">Forgot password</button>-->
+      
     </mat-card-actions>
   </mat-card>
   </div>
