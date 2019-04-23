@@ -15,7 +15,7 @@
     width: 100%;
   }
   .center{
-    width: 25%;
+    width: 30%;
     margin: 10px auto;
   }
   
@@ -24,6 +24,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url("/assets/education-wallpaper-2.jpg");
+
+    
+    /* background-size:     cover;                      /* <------ */
+   /* background-repeat:   no-repeat;
+    background-position: center center;  */
   }
   .example-button-row button,
 .example-button-row a {

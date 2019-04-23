@@ -1,47 +1,44 @@
-
-<div class="main-div" > 
-    
-       
-   <!-- <carousel>
-        <slide>
-          <img class="img-responsive center-block"src="../assets/login Corousel.jpeg" alt="first slide" style="display: block; width: 100%;">
-        </slide>
-    </carousel>-->
-    
-<mat-card  class="z-depth center" flex="50" >
-
-    
+<div class="main-div">
+  <mat-card class="z-depth center" flex="50">
+  
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title><p class="text-center">Welcome to SchoolMonitor!</p></mat-card-title>
-      
-     <!-- Sign to get a digital experience of your school.-->
+      <mat-card-title>
+        <p class="text-center">Welcome to SchoolMonitor!</p>
+      </mat-card-title>
+      <!-- Sign to get a digital experience of your school.-->
     </mat-card-header>
-   <!-- <img mat-card-image src="../assets/Logo1.PNG" alt="Logo">-->
+   
+    <!-- <img mat-card-image src="../assets/Logo1.PNG" alt="Logo">-->
+   
     <mat-card-content>
-      
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" >{{userNameWithDomain}}
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <input matInput type="password" placeholder="password" >{{password}}
-              </mat-form-field>
-          </form>
+      <form class="example-form">
+        
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Username" [(ngModel)]="userNameWithDomain" name="userNameWithDomain">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" placeholder="password" [(ngModel)]="password" name="password">
+        </mat-form-field>
+      </form>
     </mat-card-content>
+    
     <mat-card-actions>
-        <button type="button"class="btn btn-info btn-xl"
-        tooltip="Login to enter Home Page"  (click)="Login()">  Login  </button>
-       <div> <alert type="success">
-            <strong>Well done!</strong> You successfully Logged in.
+      <button type="button" class="btn btn-info btn-xl "  tooltip="Login to enter Home Page" (click)="Login()"> Login </button>
+      <div *ngIf=" loginCredentials ">
+        <alert type="success">
+          <strong>Well done!</strong> You successfully Logged in.
+        </alert>
+      </div>
+      <ng-template #failure>
+        <div>
+          <alert type="danger">
+            <strong>Oh snap!</strong>
+            <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
           </alert>
-          </div>
-       <div> <alert type="danger">
-            <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-          </alert>
-          </div>
-     <!-- <button mat-button color="primary">Forgot password</button>-->
-      
+        </div>
+      </ng-template>
+      <!-- <button mat-button color="primary">Forgot password</button>-->
+
     </mat-card-actions>
   </mat-card>
-  </div>
+</div>

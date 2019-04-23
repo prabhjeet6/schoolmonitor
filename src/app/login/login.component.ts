@@ -11,7 +11,7 @@ import { String, StringBuilder } from 'typescript-string-operations';
 export class LoginComponent implements OnInit {
   loginCredentials: LoginCredentials;
   userNameWithDomain: string;
-  password:string;
+  password: string;
 
   constructor(public loginService: LoginService) { }
 
@@ -24,21 +24,23 @@ export class LoginComponent implements OnInit {
       if (domainAndUserName.indexOf("/") != -1) {
         domainAndUserName = userNameWithDomain.split("/", 2);
       }
-      else if (domainAndUserName.indexOf('\\') != -1){
-     domainAndUserName = userNameWithDomain.split("\\", 2);
+      else if (domainAndUserName.indexOf('\\') != -1) {
+        domainAndUserName = userNameWithDomain.split("\\", 2);
       }
       else return false;
-    this.loginCredentials.domain = domainAndUserName[0];
-    this.loginCredentials.userName = domainAndUserName[1];
-    this.loginCredentials.password=this.password;
+      this.loginCredentials.domain = domainAndUserName[0];
+      this.loginCredentials.userName = domainAndUserName[1];
+      this.loginCredentials.password = this.password;
     }
     else return false;
 
-    
+
   }
   Login(): boolean {
-    if(this.setCredentials(this.userNameWithDomain))
-    return this.loginService.Login(this.loginCredentials);
+    if (this.setCredentials(this.userNameWithDomain)) {
+      this.loginService.Login(this.loginCredentials).subscribe(LoginCredentials => this.loginCredentials);
+      return true;
+    }
     else return false;
   }
 }

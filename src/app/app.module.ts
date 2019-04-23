@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms'; 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { HttpClientModule }    from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -19,8 +19,10 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     LoginComponent,
     DashboardComponent
     
+    
   ],
   imports: [
+    HttpClientModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
