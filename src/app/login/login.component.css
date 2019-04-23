@@ -1,16 +1,14 @@
-
+.example-card {
+  max-width: 400px;
+}
   
-  .example-header-image {
-    background-image: '../assets/Logo1.PNG';
-    background-size: cover;
-  }
+ 
   .example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
     
   }
-  
   .example-full-width {
     width: 100%;
   }
@@ -18,20 +16,17 @@
     width: 30%;
     margin: 10px auto;
   }
-  
+.btn {
+  width: 100%;
+}
+alert-link{
+  width: 100%;
+}
   .main-div{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: url("/assets/education-wallpaper-2.jpg");
-
-    
-    /* background-size:     cover;                      /* <------ */
-   /* background-repeat:   no-repeat;
-    background-position: center center;  */
   }
-  .example-button-row button,
-.example-button-row a {
-  margin-right: 8px;
-}
+ 

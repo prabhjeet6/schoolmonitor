@@ -1,5 +1,5 @@
 <div class="main-div">
-  <mat-card class="z-depth center" flex="50">
+  <mat-card class="z-depth-3" flex="50">
   
     <mat-card-header>
       <mat-card-title>
@@ -14,10 +14,10 @@
       <form class="example-form">
         
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username" [(ngModel)]="userNameWithDomain" name="userNameWithDomain">
+          <input matInput placeholder="Username" [(ngModel)]="userNameWithDomain" name="userNameWithDomain"/>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput type="password" placeholder="password" [(ngModel)]="password" name="password">
+          <input matInput type="password" placeholder="password" [(ngModel)]="password" name="password"/>
         </mat-form-field>
       </form>
     </mat-card-content>
@@ -29,6 +29,7 @@
           <strong>Well done!</strong> You successfully Logged in.
         </alert>
       </div>
+
       <ng-template #failure>
         <div>
           <alert type="danger">
