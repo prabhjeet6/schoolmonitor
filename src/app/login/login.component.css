@@ -27,7 +27,8 @@ alert-link{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/assets/simple background.png");
+    background-image: url("/assets/simple background.png")  ;
+    background-position: 100% 100%;
     
   }
  

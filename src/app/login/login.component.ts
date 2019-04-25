@@ -9,7 +9,7 @@ import { String, StringBuilder } from 'typescript-string-operations';
 
 })
 export class LoginComponent implements OnInit {
-  loginCredentials: LoginCredentials;
+   loginCredentials: LoginCredentials;
   userNameWithDomain: string;
   password: string;
 
@@ -20,17 +20,19 @@ export class LoginComponent implements OnInit {
   }
   setCredentials(userNameWithDomain: string): boolean {
     var domainAndUserName;
-    if (!String.IsNullOrWhiteSpace(domainAndUserName)) {
-      if (domainAndUserName.indexOf("/") != -1) {
+    if (!String.IsNullOrWhiteSpace(userNameWithDomain)) {
+      if (userNameWithDomain.indexOf("/") != -1) {
         domainAndUserName = userNameWithDomain.split("/", 2);
       }
-      else if (domainAndUserName.indexOf('\\') != -1) {
+      else if (userNameWithDomain.indexOf('\\') != -1) {
         domainAndUserName = userNameWithDomain.split("\\", 2);
       }
       else return false;
+      
       this.loginCredentials.domain = domainAndUserName[0];
       this.loginCredentials.userName = domainAndUserName[1];
       this.loginCredentials.password = this.password;
+     
     }
     else return false;
 
