@@ -13,7 +13,9 @@ export class LoginComponent implements OnInit {
   userNameWithDomain: string;
   password: string;
 
-  constructor(public loginService: LoginService) { }
+  constructor(public loginService: LoginService) { 
+    this.loginCredentials=new LoginCredentials();
+  }
 
   ngOnInit() {
 
@@ -29,10 +31,10 @@ export class LoginComponent implements OnInit {
       }
       else return false;
       
-      this.loginCredentials.domain = domainAndUserName[0];
-      this.loginCredentials.userName = domainAndUserName[1];
+      this.loginCredentials.domain = domainAndUserName[0] as string;
+      this.loginCredentials.userName = domainAndUserName[1] as string;
       this.loginCredentials.password = this.password;
-     
+      return true;
     }
     else return false;
 
