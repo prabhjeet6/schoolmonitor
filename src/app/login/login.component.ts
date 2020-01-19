@@ -52,8 +52,7 @@ export class LoginComponent implements OnInit {
     
     if (this.setCredentials(this.userNameWithDomain)) {
     this.observableLoginRequest= this.loginService.Login(this.loginCredentials);
-    this.subscriptionObject=this.observableLoginRequest.subscribe(x=>this.loginStatus=x,err=>this.loginStatus=false,()=>this.subscriptionObject.unsubscribe);
-    this.subscriptionObject=this.observableLoginRequest.subscribe(x=>{this.loginStatus=true; this.userNameWithDomain='';this.password='';},err=>{this.loginStatus=false;this.userNameWithDomain='';this.password='';},()=>this.subscriptionObject.unsubscribe);
+        this.subscriptionObject=this.observableLoginRequest.subscribe(x=>{this.loginStatus=true; this.userNameWithDomain='';this.password='';},err=>{this.loginStatus=false;this.userNameWithDomain='';this.password='';},()=>this.subscriptionObject.unsubscribe);
     
     
     
