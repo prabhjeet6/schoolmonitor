@@ -25,21 +25,21 @@
     </mat-card-content>
     
     <mat-card-actions>
-      <button type="button" class="btn btn-info btn-xl "  tooltip="Login to enter Home Page" (click)="Login()"> Login </button>
-      <div *ngIf=" loginCredentials ">
+      <button  type="button" class="btn btn-info btn-xl "   tooltip="Login to enter Home Page"  (click)="Login()"> Login </button>
+      <div *ngIf= "loginStatus!=undefined && loginStatus ">
         <alert type="success">
           <strong>Well done!</strong> You successfully Logged in.
         </alert>
       </div>
 
-      <ng-template #failure>
-        <div>
+      <!--<ng-template #failure>-->
+        <div *ngIf= "loginStatus!=undefined && !loginStatus">
           <alert type="danger">
             <strong>Oh snap!</strong>
             <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
           </alert>
         </div>
-      </ng-template>
+      <!--</ng-template>-->
       <!-- <button mat-button color="primary">Forgot password</button>-->
 
     </mat-card-actions>

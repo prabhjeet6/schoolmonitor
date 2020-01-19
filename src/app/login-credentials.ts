@@ -1,9 +1,9 @@
 export class LoginCredentials {
-    userName:string;
-    password:string;
-    domain:string;
+    
 
-    LoginCredentials(){
+    LoginCredentials(  userName:string,
+         password:string,
+         domain:string ){
        
         
     }

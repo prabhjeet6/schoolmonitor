@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/login.service';
 import { LoginCredentials } from 'src/app/login-credentials';
 import { String, StringBuilder } from 'typescript-string-operations';
+import { Observable } from 'rxjs/internal/Observable';
+import { Subscription } from 'rxjs/internal/Subscription';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,12 +12,17 @@ import { String, StringBuilder } from 'typescript-string-operations';
 
 })
 export class LoginComponent implements OnInit {
-   loginCredentials: LoginCredentials;
-  userNameWithDomain: string;
-  password: string;
-
+   
+   userNameWithDomain: string;
+   password: string;
+   loginStatus: boolean | undefined;
+   loginCredentials: any;
+   observableLoginRequest: Observable<boolean>;
+   subscriptionObject: Subscription;
+   
   constructor(public loginService: LoginService) { 
-    this.loginCredentials=new LoginCredentials();
+   
+   this.loginCredentials=new LoginCredentials();
   }
 
   ngOnInit() {
@@ -30,10 +38,10 @@ export class LoginComponent implements OnInit {
         domainAndUserName = userNameWithDomain.split("\\", 2);
       }
       else return false;
-      
-      this.loginCredentials.domain = domainAndUserName[0] as string;
-      this.loginCredentials.userName = domainAndUserName[1] as string;
-      this.loginCredentials.password = this.password;
+      this.loginCredentials.domain =domainAndUserName[0] as string;
+      this.loginCredentials.username =domainAndUserName[1] as string;
+      this.loginCredentials.password=this.password;
+     
       return true;
     }
     else return false;
@@ -41,10 +49,16 @@ export class LoginComponent implements OnInit {
 
   }
   Login(): boolean {
+    
     if (this.setCredentials(this.userNameWithDomain)) {
-      this.loginService.Login(this.loginCredentials).subscribe(LoginCredentials => this.loginCredentials);
-      return true;
+    this.observableLoginRequest= this.loginService.Login(this.loginCredentials);
+    this.subscriptionObject=this.observableLoginRequest.subscribe(x=>this.loginStatus=x,err=>this.loginStatus=false,()=>this.subscriptionObject.unsubscribe);
+    this.subscriptionObject=this.observableLoginRequest.subscribe(x=>{this.loginStatus=true; this.userNameWithDomain='';this.password='';},err=>{this.loginStatus=false;this.userNameWithDomain='';this.password='';},()=>this.subscriptionObject.unsubscribe);
+    
+    
+    
     }
-    else return false;
+    //else this.loginStatus=false;
+    return this.loginStatus;
   }
 }
