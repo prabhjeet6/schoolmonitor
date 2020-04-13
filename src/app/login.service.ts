@@ -18,7 +18,7 @@ export class LoginService {
   private loginUrl = 'http://localhost:8088/auth/signin';
   requestBody:string;
   constructor(private http: HttpClient) { }
-  Login(loginCredentials: LoginCredentials): Observable<boolean> {
+  login(loginCredentials: LoginCredentials): Observable<boolean> {
     this.requestBody=JSON.stringify(loginCredentials);
     
     return this.http.post<boolean>(this.loginUrl,this.requestBody,httpOptions);

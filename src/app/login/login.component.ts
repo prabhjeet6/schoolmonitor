@@ -4,6 +4,7 @@ import { LoginCredentials } from 'src/app/login-credentials';
 import { String, StringBuilder } from 'typescript-string-operations';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
    observableLoginRequest: Observable<boolean>;
    subscriptionObject: Subscription;
    
-  constructor(public loginService: LoginService) { 
+  constructor(public loginService: LoginService,public router: Router) { 
    
    this.loginCredentials=new LoginCredentials();
   }
@@ -48,16 +49,20 @@ export class LoginComponent implements OnInit {
 
 
   }
-  Login(): boolean {
+  login(): boolean {
     
     if (this.setCredentials(this.userNameWithDomain)) {
-    this.observableLoginRequest= this.loginService.Login(this.loginCredentials);
-        this.subscriptionObject=this.observableLoginRequest.subscribe(x=>{this.loginStatus=true; this.userNameWithDomain='';this.password='';},err=>{this.loginStatus=false;this.userNameWithDomain='';this.password='';},()=>this.subscriptionObject.unsubscribe);
-    
-    
+    this.observableLoginRequest= this.loginService.login(this.loginCredentials);
+    this.subscriptionObject=this.observableLoginRequest.subscribe(x=>{this.loginStatus=true; this.userNameWithDomain='';this.password='';},err=>{this.loginStatus=false;this.userNameWithDomain='';this.password='';},()=>this.subscriptionObject.unsubscribe);
     
     }
-    //else this.loginStatus=false;
+    
+    
     return this.loginStatus;
   }
+
+  redirectToDashboard():void{
+    //if(this.loginStatus)
+    this.router.navigateByUrl(`/Dashboard`);
+    }
 }
