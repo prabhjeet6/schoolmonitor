@@ -18,10 +18,10 @@ export class LoginService {
   private loginUrl = 'http://localhost:8088/auth/signin';
   requestBody:string;
   constructor(private http: HttpClient) { }
-  login(loginCredentials: LoginCredentials): Observable<boolean> {
+  login(loginCredentials: LoginCredentials): Observable<object> {
     this.requestBody=JSON.stringify(loginCredentials);
     
-    return this.http.post<boolean>(this.loginUrl,this.requestBody,httpOptions);
+    return this.http.post<object>(this.loginUrl,this.requestBody,httpOptions);
     //.pipe( catchError(this.handleError<boolean>('Login', false)));
 
   }

@@ -13,11 +13,19 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { JwtModule } from "@auth0/angular-jwt";
+import { TestComponent } from './test/test.component';
+import { AuthGuardService } from 'src/app/auth-guard.service';
+
+export function tokenGetter() {
+  return localStorage.getItem("userTken");
+}
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    TestComponent
     
     
   ],
@@ -32,7 +40,15 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     MatInputModule,
     CarouselModule.forRoot(),
     TooltipModule.forRoot(),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+
+     JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: [],
+        blacklistedRoutes: []
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

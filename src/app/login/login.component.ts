@@ -5,6 +5,7 @@ import { String, StringBuilder } from 'typescript-string-operations';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
 import {Router} from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +18,12 @@ export class LoginComponent implements OnInit {
    userNameWithDomain: string;
    password: string;
    loginStatus: boolean | undefined;
+   userToken : object;
    loginCredentials: any;
-   observableLoginRequest: Observable<boolean>;
+   observableLoginRequest: Observable<object>;
    subscriptionObject: Subscription;
    
-  constructor(public loginService: LoginService,public router: Router) { 
+  constructor(public  auth: AuthService,public loginService: LoginService,public router: Router) { 
    
    this.loginCredentials=new LoginCredentials();
   }
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit {
     
     if (this.setCredentials(this.userNameWithDomain)) {
     this.observableLoginRequest= this.loginService.login(this.loginCredentials);
-    this.subscriptionObject=this.observableLoginRequest.subscribe(x=>{this.loginStatus=true; this.userNameWithDomain='';this.password='';},err=>{this.loginStatus=false;this.userNameWithDomain='';this.password='';},()=>this.subscriptionObject.unsubscribe);
+    this.subscriptionObject=this.observableLoginRequest.subscribe(x=>{this.userToken=x;this.loginStatus=true; this.userNameWithDomain='';this.password='';},err=>{this.loginStatus=false;this.userNameWithDomain='';this.password='';},()=>this.subscriptionObject.unsubscribe);
     
     }
     
@@ -61,8 +63,12 @@ export class LoginComponent implements OnInit {
     return this.loginStatus;
   }
 
-  redirectToDashboard():void{
-    //if(this.loginStatus)
-    this.router.navigateByUrl(`/Dashboard`);
+  redirectToIntendedUrl():void{
+  
+  localStorage.setItem('userToken',this.userToken['Token']);
+  if(this.auth.redirectUrl==undefined)
+  this.router.navigateByUrl(`/Dashboard`);
+  else this.router.navigateByUrl(this.auth.redirectUrl);
+    
     }
 }
