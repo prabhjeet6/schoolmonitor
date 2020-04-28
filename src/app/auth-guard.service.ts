@@ -27,8 +27,7 @@ checkLogin(url:string):boolean{
   this.auth.redirectUrl=url;
   this.router.navigateByUrl('/Login');
   return false;
-  //Authguard works, but, does not to redirect to intended url after Login, 
-  //instead redirects to default
+  
   
 }
 }
