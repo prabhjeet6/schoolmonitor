@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
 import {Router} from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
+import { History } from 'ngx-bootstrap/utils/facade/browser';
+
 
 @Component({
   selector: 'app-login',
@@ -66,9 +68,12 @@ export class LoginComponent implements OnInit {
   redirectToIntendedUrl():void{
   
   localStorage.setItem('userToken',this.userToken['Token']);
+  
   if(this.auth.redirectUrl==undefined)
   this.router.navigateByUrl(`/Dashboard`);
   else this.router.navigateByUrl(this.auth.redirectUrl);
+ // this.auth.preventBackButton();
+
     
     }
 }
