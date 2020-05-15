@@ -19,6 +19,7 @@ import { AuthGuardService } from 'src/app/auth-guard.service';
 
 import { MatGridListModule, MatMenuModule, MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 export function tokenGetter() {
@@ -30,7 +31,8 @@ export function tokenGetter() {
     LoginComponent,
     
     TestComponent,
-    DashboardComponent
+    DashboardComponent,
+    ForgotPasswordComponent
     
   ],
   imports: [
