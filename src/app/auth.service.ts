@@ -18,6 +18,7 @@ redirectUrl:string;
   confirmLogin(url:string,router :Router):boolean{
     if (this.isAuthenticated() ){
       return true;
+      
     }
     this.redirectUrl=url;
     router.navigateByUrl('/Login');

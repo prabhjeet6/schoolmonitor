@@ -1,0 +1,11 @@
+
+
+@font-face {
+    font-family: 'Moon-Bold';
+    src: url("src/assets/fonts/Moon-Bold.otf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Moon-Light';
+    src: url("src/assets/fonts/Moon-Light.otf") format("truetype");
+}

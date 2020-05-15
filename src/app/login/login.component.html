@@ -1,53 +1,87 @@
-
-<div class="main-div">
+<div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end">
     <!--<img src="/assets/LoginBackground3.svg " alt="LoginPageImg" style="width:40%">-->
-  <mat-card class="z-depth-3" flex="50">
-  
-    <mat-card-header>
-      <mat-card-title>
-        <p class="text-center" >Welcome to SchoolMonitor!</p>
-      </mat-card-title>
-      <!-- Sign to get a digital experience of your school.-->
-    </mat-card-header>
-   
-    <!--<img mat-card-image src="../assets/Logo2.PNG" alt="Logo" style="width:10%">-->
-   
-    <mat-card-content>
-      <form class="example-form">
-        
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username" type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain"/>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <input matInput type="password" placeholder="password" [(ngModel)]="password" name="password"/>
-        </mat-form-field>
-      </form>
-    </mat-card-content>
-    
-    <mat-card-actions>
-      <button  type="button" class="btn btn-info btn-xl "   tooltip="Login to enter Home Page"  (click)="login()"> Login </button>
-      
-        <div *ngIf= "loginStatus!=undefined && loginStatus ">
-        
-        <!--<alert  type="success" >
+
+    <mat-toolbar color="primary" role="heading">
+      <mat-toolbar-row>
+        <span class="customHeaderFont"><h1>SchoolMonitor</h1></span>
+
+      </mat-toolbar-row>
+
+
+    </mat-toolbar>
+  </div>
+  <div class="main-div">
+
+    <mat-card class="z-depth-3" flex="50">
+
+      <mat-card-header>
+        <mat-card-title>
+          <p class="text-center">Welcome to SchoolMonitor!</p>
+        </mat-card-title>
+        <!-- Sign to get a digital experience of your school.-->
+      </mat-card-header>
+
+      <!--<img mat-card-image src="../assets/Logo2.PNG" alt="Logo" style="width:10%">-->
+
+      <mat-card-content>
+        <form class="example-form">
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain" />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="password" [(ngModel)]="password" name="password" />
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button type="button" class="btn btn-info btn-xl " tooltip="Login to enter Home Page" (click)="login()"> Login </button>
+
+        <button mat-button color="accent">Forgot Password?</button>
+        <div *ngIf="loginStatus!=undefined && loginStatus ">
+
+          <!--<alert  type="success" >
           <strong>Well done!</strong> You successfully Logged in.
           
         </alert>-->
-      <div>{{redirectToIntendedUrl()}}</div>
-      </div>
-    
+          <div>{{redirectToIntendedUrl()}}</div>
+        </div>
 
-      <!--<ng-template #failure>-->
-        <div *ngIf= "loginStatus!=undefined && !loginStatus">
+
+
+        <div *ngIf="loginStatus!=undefined && !loginStatus">
           <alert type="danger">
             <strong>Oh snap!</strong>
             <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
           </alert>
         </div>
-      <!--</ng-template>-->
-      <!-- <button mat-button color="primary">Forgot password</button>-->
-      
-       
-    </mat-card-actions >
-  </mat-card>
+
+
+
+
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="footer">
+    <a href="https://github.com/prabhjeet6" target="_blank">
+      <img src="../assets/GitHub-Mark-32px.png">
+    </a>
+
+    <a href="https://www.linkedin.com/in/prabhjeet-singh-7bb58a48/" target="_blank">
+      <img src="../assets/linkedin.png">
+    </a>
+  </div>
+  <div>
+    <footer class="page-footer font-small blue" >
+
+
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#"> Prabhjeet Singh</a>
+      </div>
+
+
+    </footer>
+  </div>
 </div>

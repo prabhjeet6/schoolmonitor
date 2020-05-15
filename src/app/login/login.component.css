@@ -1,3 +1,5 @@
+
+
 .example-card {
   max-width: 400px;
 }
@@ -38,3 +40,8 @@ alert-link{
   {
     display:inline-block;
   }*/
+  footer{
+    text-align: center;
+    font-family: 'Moon-Bold';
+  }
+ 

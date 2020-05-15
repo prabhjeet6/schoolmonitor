@@ -24,10 +24,13 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css",
+              "src/styles.scss",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/nova-light/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "node_modules/primeng/resources/primeng.min.css",
+              "src/assets/fonts/customFonts.css",
+              "src/assets/fonts/custom-typography.scss"
+              
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -85,7 +88,15 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.scss",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "src/assets/fonts/customFonts.css",
+              "src/assets/fonts/custom-typography.scss"
+              
+
+
             ],
             "scripts": [],
             "assets": [

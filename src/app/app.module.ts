@@ -17,6 +17,10 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { TestComponent } from './test/test.component';
 import { AuthGuardService } from 'src/app/auth-guard.service';
 
+import { MatGridListModule, MatMenuModule, MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
+
+
 export function tokenGetter() {
   return localStorage.getItem("userTken");
 }
@@ -24,9 +28,9 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
-    TestComponent
     
+    TestComponent,
+    DashboardComponent
     
   ],
   imports: [
@@ -36,6 +40,9 @@ export function tokenGetter() {
     AppRoutingModule,
     BrowserAnimationsModule,
     
+   
+
+    MatToolbarModule,
     MatCardModule,
     MatInputModule,
     CarouselModule.forRoot(),
@@ -48,7 +55,17 @@ export function tokenGetter() {
         whitelistedDomains: [],
         blacklistedRoutes: []
       }
-    })
+    }),
+
+     MatGridListModule,
+
+     MatMenuModule,
+
+     MatIconModule,
+
+     MatButtonModule,
+
+     LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
