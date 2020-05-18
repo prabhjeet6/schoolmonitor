@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/login.service';
 import { LoginCredentials } from 'src/app/login-credentials';
 import { String, StringBuilder } from 'typescript-string-operations';
 import { Observable } from 'rxjs/internal/Observable';
@@ -8,7 +7,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { History } from 'ngx-bootstrap/utils/facade/browser';
 
-
+/**@author Prabhjeet Singh */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +24,7 @@ export class LoginComponent implements OnInit {
   observableLoginRequest: Observable<object>;
   subscriptionObject: Subscription;
 
-  constructor(public auth: AuthService, public loginService: LoginService, public router: Router) {
+  constructor(public auth: AuthService,  public router: Router) {
 
     this.loginCredentials = new LoginCredentials();
   }
@@ -56,12 +55,13 @@ export class LoginComponent implements OnInit {
   login(): boolean {
 
     if (this.setCredentials(this.userNameWithDomain)) {
-      this.observableLoginRequest = this.loginService.login(this.loginCredentials);
+      this.observableLoginRequest = this.auth.login(this.loginCredentials);
       this.subscriptionObject = this.observableLoginRequest.subscribe(x => { this.userToken = x; this.loginStatus = true; this.userNameWithDomain = ''; this.password = ''; }, err => { this.loginStatus = false; this.userNameWithDomain = ''; this.password = ''; }, () => this.subscriptionObject.unsubscribe);
 
     } else {
-    this.loginStatus = false;
-      this.userNameWithDomain = ''; this.password = '';
+      this.loginStatus = false;
+      this.userNameWithDomain = '';
+      this.password = '';
     }
 
 

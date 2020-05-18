@@ -1,3 +1,53 @@
-<p>
-  dashboard works!
-</p>
+<div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end">
+
+
+    <mat-toolbar color="primary" role="heading">
+      <mat-toolbar-row>
+        <span class="customHeaderFont">
+          <h1>SchoolMonitor</h1>
+        </span>
+        <span class="fill-remaining-space"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item  >
+            <!--<mat-icon>"./src/assets/LogOut.svg"</mat-icon>-->
+            <!--<img src="src/assets/LogOut.svg">-->
+            <span>Log Out</span>
+            
+          </button>
+        </mat-menu>
+
+      </mat-toolbar-row>
+
+
+    </mat-toolbar>
+  </div>
+  <div class="main-div">
+
+
+  </div>
+  <div class="footer">
+    <a href="https://github.com/prabhjeet6" target="_blank">
+      <img src="../assets/GitHub-Mark-32px.png">
+    </a>
+
+    <a href="https://www.linkedin.com/in/prabhjeet-singh-7bb58a48/" target="_blank">
+      <img src="../assets/linkedin.png">
+    </a>
+  </div>
+  <div>
+    <footer class="page-footer font-small blue">
+
+
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#"> Prabhjeet Singh</a>
+      </div>
+
+
+    </footer>
+  </div>
+</div>
