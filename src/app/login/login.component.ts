@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginCredentials } from 'src/app/login-credentials';
-import { String, StringBuilder } from 'typescript-string-operations';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { History } from 'ngx-bootstrap/utils/facade/browser';
-
+import { UtilsService } from 'src/app/utils/utils.service';
+import { LoginCredentials } from 'src/app/login-credentials';
 /**@author Prabhjeet Singh */
 @Component({
   selector: 'app-login',
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
   observableLoginRequest: Observable<object>;
   subscriptionObject: Subscription;
 
-  constructor(public auth: AuthService,  public router: Router) {
+  constructor(public auth: AuthService, public utils: UtilsService, public router: Router) {
 
     this.loginCredentials = new LoginCredentials();
   }
@@ -32,29 +31,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
   }
-  setCredentials(userNameWithDomain: string): boolean {
-    var domainAndUserName;
-    if (!String.IsNullOrWhiteSpace(userNameWithDomain)) {
-      if (userNameWithDomain.indexOf("/") != -1) {
-        domainAndUserName = userNameWithDomain.split("/", 2);
-      }
-      else if (userNameWithDomain.indexOf('\\') != -1) {
-        domainAndUserName = userNameWithDomain.split("\\", 2);
-      }
-      else return false;
-      this.loginCredentials.domain = domainAndUserName[0] as string;
-      this.loginCredentials.username = domainAndUserName[1] as string;
-      this.loginCredentials.password = this.password;
 
-      return true;
-    }
-    else return false;
-
-
-  }
   login(): boolean {
 
-    if (this.setCredentials(this.userNameWithDomain)) {
+    if (this.utils.setCredentials(this.userNameWithDomain, this.loginCredentials, this.password)) {
       this.observableLoginRequest = this.auth.login(this.loginCredentials);
       this.subscriptionObject = this.observableLoginRequest.subscribe(x => { this.userToken = x; this.loginStatus = true; this.userNameWithDomain = ''; this.password = ''; }, err => { this.loginStatus = false; this.userNameWithDomain = ''; this.password = ''; }, () => this.subscriptionObject.unsubscribe);
 
