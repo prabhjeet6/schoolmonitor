@@ -24,6 +24,8 @@ import { LogOutComponent } from './log-out/log-out.component';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { OnlineCourseworkComponent } from './online-coursework/online-coursework.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { OverflowMenuComponent } from './overflow-menu/overflow-menu.component';
 
 
 
@@ -42,6 +44,8 @@ export function tokenGetter() {
     AdminConsoleComponent,
     OnlineCourseworkComponent,
     FooterComponent,
+    HeaderComponent,
+    OverflowMenuComponent,
     
     
   ],
