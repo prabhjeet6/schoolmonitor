@@ -4,7 +4,9 @@
 
     <mat-toolbar color="primary" role="heading">
       <mat-toolbar-row>
-        <span class="customHeaderFont"><h1>SchoolMonitor</h1></span>
+        <span class="customHeaderFont">
+          <h1>SchoolMonitor</h1>
+        </span>
 
       </mat-toolbar-row>
 
@@ -25,12 +27,12 @@
       <!--<img mat-card-image src="../assets/Logo2.PNG" alt="Logo" style="width:10%">-->
 
       <mat-card-content>
-        <form class="example-form">
+        <form class="login-form">
 
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="login-full-width">
             <input matInput placeholder="Username" type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain" />
           </mat-form-field>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="login-full-width">
             <input matInput type="password" placeholder="password" [(ngModel)]="password" name="password" />
           </mat-form-field>
         </form>
@@ -52,7 +54,7 @@
 
 
         <div *ngIf="loginStatus!=undefined && !loginStatus">
-            
+
           <alert type="danger">
             <strong>Oh snap!</strong>
             <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
@@ -65,24 +67,5 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  <div class="footer">
-    <a href="https://github.com/prabhjeet6" target="_blank">
-      <img src="../assets/GitHub-Mark-32px.png">
-    </a>
-
-    <a href="https://www.linkedin.com/in/prabhjeet-singh-7bb58a48/" target="_blank">
-      <img src="../assets/linkedin.png">
-    </a>
-  </div>
-  <div>
-    <footer class="page-footer font-small blue" >
-
-
-      <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="#"> Prabhjeet Singh</a>
-      </div>
-
-
-    </footer>
-  </div>
+  <app-footer></app-footer>
 </div>
