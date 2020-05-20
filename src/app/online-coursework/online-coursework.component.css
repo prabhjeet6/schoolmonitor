@@ -1,0 +1,47 @@
+
+
+.example-card {
+    max-width: 400px;
+  }
+    
+   
+    .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+      
+    }
+    .example-full-width {
+      width: 100%;
+    }
+    .center{
+      width: 30%;
+      margin: 10px auto;
+    }
+  .btn {
+    width: 100%;
+  }
+  alert-link{
+    width: 100%;
+  }
+    .main-div{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align:center;
+  
+      /*background-repeat: no-repeat;
+      background-size:auto 45pc;
+      background-position:center;
+      background-image: url("/assets/404.png");*/
+    }
+    /*img 
+    {
+      display:inline-block;
+    }*/
+    footer{
+      text-align: center;
+      font-family: 'Moon-Bold';
+    }
+   

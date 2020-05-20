@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { History } from 'ngx-bootstrap/utils/facade/browser';
 import { UtilsService } from 'src/app/utils/utils.service';
 import { LoginCredentials } from 'src/app/login-credentials';
