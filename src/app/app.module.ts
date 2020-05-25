@@ -26,11 +26,11 @@ import { OnlineCourseworkComponent } from './online-coursework/online-coursework
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { OverflowMenuComponent } from './overflow-menu/overflow-menu.component';
-
+import {OverlayModule} from '@angular/cdk/overlay';
 
 
 export function tokenGetter() {
-  return localStorage.getItem("userTken");
+  return localStorage.getItem("userToken");
 }
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ export function tokenGetter() {
     OnlineCourseworkComponent,
     FooterComponent,
     HeaderComponent,
-    OverflowMenuComponent,
+    OverflowMenuComponent
     
     
   ],
@@ -55,16 +55,13 @@ export function tokenGetter() {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    
-   
-
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
     CarouselModule.forRoot(),
     TooltipModule.forRoot(),
     AlertModule.forRoot(),
-
+    OverlayModule,
      JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -81,7 +78,8 @@ export function tokenGetter() {
 
      MatButtonModule,
 
-     LayoutModule
+     LayoutModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

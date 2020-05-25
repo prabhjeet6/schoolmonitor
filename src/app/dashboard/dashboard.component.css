@@ -1,4 +1,7 @@
-
+.fill-remaining-space {
+      
+  flex: 1 1 auto;
+}
 
 
     
@@ -20,8 +23,8 @@
       display:inline-block;
     }*/
     
-    .fill-remaining-space {
+   /* .fill-remaining-space {
       
       flex: 1 1 auto;
-    }
+    }*/
    

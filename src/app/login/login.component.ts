@@ -11,8 +11,8 @@ import { LoginCredentials } from 'src/app/login-credentials';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
-
 })
+
 export class LoginComponent implements OnInit {
 
   userNameWithDomain: string;
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
     this.loginCredentials = new LoginCredentials();
   }
-
+  
   ngOnInit() {
 
   }
