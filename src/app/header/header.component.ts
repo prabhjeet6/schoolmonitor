@@ -8,10 +8,11 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private loginComponent : LoginComponent) { }
+  constructor() { }
   showHeader:boolean;
   ngOnInit() {
-    this.showHeader=this.loginComponent.loginStatus;
+    this.showHeader=null!=localStorage.getItem('userToken');
+    
   }
 
 }

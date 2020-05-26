@@ -13,9 +13,7 @@ import { Injectable } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-@Injectable({
-  providedIn: 'root',
-})
+
 export class LoginComponent implements OnInit {
 
   userNameWithDomain: string;
