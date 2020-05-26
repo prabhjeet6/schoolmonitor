@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from 'src/app/login/login.component';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +9,9 @@ import { LoginComponent } from 'src/app/login/login.component';
 export class HeaderComponent implements OnInit {
 
   constructor(private loginComponent : LoginComponent) { }
-
+  showHeader:boolean;
   ngOnInit() {
+    this.showHeader=this.loginComponent.loginStatus;
   }
 
 }

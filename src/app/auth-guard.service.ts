@@ -5,6 +5,7 @@ import { AuthService } from './auth/auth.service';
 import { Observable } from 'rxjs';
 import { CanDeactivate, UrlTree, UrlSegment } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +32,7 @@ export class AuthGuardService implements CanActivate, CanDeactivate<any> {
 
       history.pushState(null, null, location.href);
       return false;
+      
     }
     
     else return true;
