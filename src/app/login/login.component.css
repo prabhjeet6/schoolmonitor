@@ -1,14 +1,11 @@
 
-
-.example-card {
-  max-width: 400px;
-}
   
  
   .login-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
+    
     
   }
   .login-full-width {
@@ -30,18 +27,29 @@ alert-link{
     justify-content: center;
     align-items: center;
     text-align:center;
+    margin: 100px auto;
 
     /*background-repeat: no-repeat;
     background-size:auto 45pc;
     background-position:center;
     background-image: url("/assets/404.png");*/
   }
-  /*img 
+  
+  img 
   {
-    display:inline-block;
-  }*/
+    width: 55%;
+    height: 55%;
+    float:  left; 
+   
+    margin-top: 15% 
+  }
   footer{
     text-align: center;
     font-family: 'Moon-Bold';
   }
- 
+  card{
+    position: relative;
+     float: left;
+     
+  }
+  
