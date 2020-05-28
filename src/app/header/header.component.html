@@ -2,10 +2,10 @@
   <mat-toolbar color="primary" role="heading">
     <mat-toolbar-row>
       <span class="customHeaderFont">
-        <h1>SchoolMonitor</h1>
+        <h1><a (click)="getLandingPage()">SchoolMonitor</a></h1>
       </span>
       <span class="fill-remaining-space"></span>
-      <div *ngIf ="showHeader">
+      <div *ngIf ="showOverflowMenu">
     <app-overflow-menu ></app-overflow-menu>  
       </div>
     </mat-toolbar-row>

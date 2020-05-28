@@ -11,7 +11,7 @@ import { LogOutComponent } from 'src/app/log-out/log-out.component';
 const routes: Routes = [
   { path: 'LogOut', component: LogOutComponent,canDeactivate: [AuthGuard] },
   { path: 'ForgotPassword', component: ForgotPasswordComponent },
-  { path: 'Dashboard', component: DashboardComponent, canDeactivate: [AuthGuard] },
+  { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard],canDeactivate: [AuthGuard] },
   { path: 'Test', component: TestComponent, canActivate: [AuthGuard], canDeactivate: [AuthGuard] },
   { path: '', redirectTo: '/Login', pathMatch: 'full' },
   { path: 'Login', component: LoginComponent }

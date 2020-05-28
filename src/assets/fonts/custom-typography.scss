@@ -17,7 +17,8 @@ $config: mat-typography-config();
   @include mat-typography-level-to-styles($config, title);
   font-size: mat-font-size($config, headline);
   font-family: mat-font-family($config);
-  color: white
+  color: white;
+  cursor: pointer;
 
   
 }

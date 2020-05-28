@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,11 +8,16 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-  showHeader:boolean;
+  constructor(private router: Router) { }
+  showOverflowMenu: boolean;
   ngOnInit() {
-    this.showHeader=null!=localStorage.getItem('userToken');
-    
+    this.showOverflowMenu = null != localStorage.getItem('userToken');
+
+  }
+  getLandingPage(): void {
+    if (this.showOverflowMenu)
+      this.router.navigateByUrl('/Dashboard');
+    else this.router.navigateByUrl('/Login');
   }
 
 }

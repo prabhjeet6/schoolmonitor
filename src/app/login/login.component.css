@@ -41,6 +41,7 @@ alert-link{
     height: 55%;
     float:  left; 
     
+    
     margin-top: 15%;
     border-radius: 25%;
    background-color:whitesmoke; 
@@ -52,7 +53,10 @@ alert-link{
   }
   card{
     position: relative;
-     float: left;
-     
+     float: left;  
+  }
+  introHeader{
+    font-family: 'Moon-Bold';
+    color:blue;
   }
   
