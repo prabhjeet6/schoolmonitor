@@ -1,6 +1,6 @@
 <div>
     <app-header></app-header>
-    <!--<div><h2 class=introHeader>Sign to get a digital experience of your school</h2></div>-->
+   <!-- <div class=introHeader><h2 >Sign in<br/>to get a digital experience of your school</h2></div>-->
     <div class="img" ><img  src="../assets/LogIn.svg"  /></div>
     <div class="main-div" >
        <div class="card">
@@ -15,15 +15,15 @@
              <mat-card-content>
                 <form class="login-form">
                    <mat-form-field class="login-full-width">
-                      <input matInput placeholder="Username" type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain" />
+                      <input  (keydown.enter)="login()" matInput placeholder="Username" type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain"  />
                    </mat-form-field>
                    <mat-form-field class="login-full-width">
-                      <input matInput type="password" placeholder="password" [(ngModel)]="password" name="password" />
+                      <input  (keydown.enter)="login()" matInput type="password" placeholder="password" [(ngModel)]="password" name="password" />
                    </mat-form-field>
                 </form>
              </mat-card-content>
              <mat-card-actions>
-                <button type="button" class="btn btn-info btn-xl " tooltip="Login to enter Home Page" (click)="login()"> Login </button>
+                <button type="button" class="btn btn-info btn-xl " tooltip="Login to enter Home Page"  (click)="login()"> Login </button>
                 <button mat-button color="accent">Forgot Password?</button>
                 <div *ngIf="loginStatus!=undefined && loginStatus ">
                    <!--<alert  type="success" >

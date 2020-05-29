@@ -55,8 +55,11 @@ alert-link{
     position: relative;
      float: left;  
   }
-  introHeader{
+  .introHeader{
     font-family: 'Moon-Bold';
-    color:blue;
+    color:darkblue;
+    float: right;
+    
+    
   }
   
