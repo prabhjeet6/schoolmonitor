@@ -4,6 +4,7 @@ import { Router, Route, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot
 import { AuthService } from './auth/auth.service';
 import { Observable } from 'rxjs';
 import { CanDeactivate, UrlTree, UrlSegment } from '@angular/router';
+import { window } from 'rxjs/internal/operators/window';
 
 
 @Injectable({
@@ -19,6 +20,7 @@ export class AuthGuardService implements CanActivate, CanDeactivate<any> {
   canActivate(next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     let url: string = state.url;
+    
     return this.auth.confirmLogin(url, this.router);
 
   }
@@ -29,15 +31,11 @@ export class AuthGuardService implements CanActivate, CanDeactivate<any> {
     nextState: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if ((this.auth.isAuthenticated() && nextState.url == '/Login')||(currentState.url=='/LogOut'&& !this.auth.isAuthenticated())) {
-
       history.pushState(null, null, location.href);
       return false;
-      
     }
     
     else return true;
   }
-
-
-
 }
+  

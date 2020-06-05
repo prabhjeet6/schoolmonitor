@@ -17,8 +17,8 @@ export class AuthService {
   redirectUrl: string;
   private loginUrl = 'http://localhost:8088/auth/signin';
   requestBody: string;
-  constructor(public jwtHelper: JwtHelperService, private http: HttpClient,private router:Router) { }
-
+  broadcastingChannel = new BroadcastChannel('auth');
+  constructor(public jwtHelper: JwtHelperService, private http: HttpClient, private router: Router) { }
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('userToken');
     return !this.jwtHelper.isTokenExpired(token);
@@ -37,10 +37,12 @@ export class AuthService {
     this.requestBody = JSON.stringify(loginCredentials);
     return this.http.post<object>(this.loginUrl, this.requestBody, httpOptions);
     //.pipe( catchError(this.handleError<boolean>('Login', false)));
-
   }
 
-  logOut(){
-    localStorage.clear(); 
+  logOut() {
+      localStorage.clear();
+      this.broadcastingChannel.postMessage({ cmd: 'logOut' });
+      this.broadcastingChannel.close();
+      this.router.navigateByUrl('\Login');
   }
 }

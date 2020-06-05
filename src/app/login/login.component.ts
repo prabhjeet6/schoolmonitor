@@ -25,34 +25,28 @@ export class LoginComponent implements OnInit {
   subscriptionObject: Subscription;
 
   constructor(public auth: AuthService, public utils: UtilsService, public router: Router) {
-
     this.loginCredentials = new LoginCredentials();
   }
-  
-  ngOnInit() {
 
+  ngOnInit() {
+    if(this.auth.isAuthenticated)
+    this.router.navigateByUrl(`/Dashboard`);
   }
 
   login(): boolean {
-
     if (this.utils.setCredentials(this.userNameWithDomain, this.loginCredentials, this.password)) {
       this.observableLoginRequest = this.auth.login(this.loginCredentials);
       this.subscriptionObject = this.observableLoginRequest.subscribe(x => { this.userToken = x; this.loginStatus = true; this.userNameWithDomain = ''; this.password = ''; }, err => { this.loginStatus = false; this.userNameWithDomain = ''; this.password = ''; }, () => this.subscriptionObject.unsubscribe);
-
     } else {
       this.loginStatus = false;
       this.userNameWithDomain = '';
       this.password = '';
     }
-
-
     return this.loginStatus;
   }
 
   redirectToIntendedUrl(): void {
-
     localStorage.setItem('userToken', this.userToken['Token']);
-
     if (this.auth.redirectUrl == undefined)
       this.router.navigateByUrl(`/Dashboard`);
     else this.router.navigateByUrl(this.auth.redirectUrl);
