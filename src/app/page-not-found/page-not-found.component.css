@@ -6,7 +6,7 @@ img
     
     margin-left: 22%;
     margin-top: 4%;
-    border-radius: 0%;
+    border-radius: 25%;
    background-color:white; 
     
   }
@@ -15,10 +15,13 @@ img
      
     
     height: 120%;
-    width: 30%;
+    width: 105%;
    align-self: center;
-   font-size: larger;
+   font-size: xx-large;
     
+  }
+  .Link{
+    align-self: center
   }
   footer{
     text-align: center;
