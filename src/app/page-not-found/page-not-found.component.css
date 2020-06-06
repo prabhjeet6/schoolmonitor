@@ -1,0 +1,32 @@
+img 
+  {
+    width: 50%;
+    height: 50%;
+    float:  center; 
+    
+    margin-left: 22%;
+    margin-top: 4%;
+    border-radius: 0%;
+   background-color:white; 
+    
+  }
+  .homeButton{
+    font-family: 'Moon-Bold';
+     
+    
+    height: 120%;
+    width: 30%;
+   align-self: center;
+   font-size: larger;
+    
+  }
+  footer{
+    text-align: center;
+    font-family: 'Moon-Bold';
+  }
+  .card{
+    position: relative;
+     float:center ;
+      
+    
+  }

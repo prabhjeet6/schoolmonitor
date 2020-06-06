@@ -27,6 +27,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { OverflowMenuComponent } from './overflow-menu/overflow-menu.component';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 
 
@@ -47,7 +49,9 @@ export function tokenGetter() {
     OnlineCourseworkComponent,
     FooterComponent,
     HeaderComponent,
-    OverflowMenuComponent
+    OverflowMenuComponent,
+    PageNotFoundComponent,
+   
     
     
   ],
