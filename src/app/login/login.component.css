@@ -27,7 +27,7 @@ alert-link{
     justify-content: center;
     align-items: center;
     text-align:center;
-    margin: 100px auto;
+    margin: -7%;
 
     /*background-repeat: no-repeat;
     background-size:auto 45pc;
@@ -42,7 +42,7 @@ alert-link{
     float:  left; 
     
     
-    margin-top: 15%;
+    /*margin-top: 15%;*/
     border-radius: 25%;
    background-color:whitesmoke; 
     
@@ -58,7 +58,7 @@ alert-link{
   .introHeader{
     font-family: 'Moon-Bold';
     color:darkblue;
-    float: right;
+    
     
     
   }
