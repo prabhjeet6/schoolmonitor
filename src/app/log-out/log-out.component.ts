@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
-import { DoCheck } from '@angular/core/src/metadata/lifecycle_hooks';
-
+import { DoCheck, AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Router } from '@angular/router';
+import { of } from 'rxjs';
 @Component({
   selector: 'app-log-out',
   templateUrl: './log-out.component.html',
@@ -9,11 +10,13 @@ import { DoCheck } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class LogOutComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(public  auth: AuthService, public router:Router) { }
 
   ngOnInit() {
-    this.auth.logOut();
+    
+     
+     
+     
   }
- 
 
 }
