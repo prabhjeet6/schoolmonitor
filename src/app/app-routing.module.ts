@@ -5,11 +5,11 @@ import { LoginComponent } from 'src/app/login/login.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { TestComponent } from './test/test.component';
 import { ForgotPasswordComponent } from 'src/app/forgot-password/forgot-password.component';
-import { LogOutComponent } from 'src/app/log-out/log-out.component';
+
 import { PageNotFoundComponent } from 'src/app/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: 'LogOut', redirectTo: '/Login', pathMatch: 'full'},
+  
   { path: 'ForgotPassword', component: ForgotPasswordComponent },
   { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard],canDeactivate: [AuthGuard] },
   { path: 'Test', component: TestComponent, canActivate: [AuthGuard], canDeactivate: [AuthGuard] },

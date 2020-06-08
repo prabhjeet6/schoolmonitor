@@ -30,7 +30,7 @@ export class AuthGuardService implements CanActivate, CanDeactivate<any> {
     currentState: RouterStateSnapshot,
     nextState: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if ((this.auth.isAuthenticated() && nextState.url == '/Login')||(currentState.url=='/Login'&& !this.auth.isAuthenticated())) {
+    if (this.auth.isAuthenticated() && nextState.url == '/Login'){
       history.pushState(null, null, location.href);
       return false;
     }
