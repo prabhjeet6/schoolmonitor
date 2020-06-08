@@ -13,7 +13,9 @@ import { Injectable } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-
+@Injectable({
+  providedIn: 'root'
+})
 export class LoginComponent implements OnInit {
 
   userNameWithDomain: string;
@@ -29,8 +31,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.auth.isAuthenticated)
+    
+    if(this.auth.isAuthenticated &&this.auth.redirectUrl==undefined ){
     this.router.navigateByUrl(`/Dashboard`);
+  }
   }
 
   login(): boolean {
@@ -47,8 +51,10 @@ export class LoginComponent implements OnInit {
 
   redirectToIntendedUrl(): void {
     localStorage.setItem('userToken', this.userToken['Token']);
-    if (this.auth.redirectUrl == undefined)
+    if (this.auth.redirectUrl == undefined){
       this.router.navigateByUrl(`/Dashboard`);
-    else this.router.navigateByUrl(this.auth.redirectUrl);
+    }
+    else {this.router.navigateByUrl(this.auth.redirectUrl);
+    }
   }
 }

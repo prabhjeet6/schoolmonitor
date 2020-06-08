@@ -20,7 +20,7 @@ import { AuthGuardService } from 'src/app/auth-guard.service';
 import { MatGridListModule, MatMenuModule, MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { LogOutComponent } from './log-out/log-out.component';
+
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { OnlineCourseworkComponent } from './online-coursework/online-coursework.component';
 import { FooterComponent } from './footer/footer.component';
@@ -42,7 +42,7 @@ export function tokenGetter() {
     TestComponent,
     DashboardComponent,
     ForgotPasswordComponent,
-    LogOutComponent,
+    
     AdminConsoleComponent,
     OnlineCourseworkComponent,
     FooterComponent,

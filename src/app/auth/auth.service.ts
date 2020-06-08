@@ -42,7 +42,8 @@ export class AuthService {
   logOut() {
       localStorage.clear();
       this.broadcastingChannel.postMessage({ cmd: 'logOut' });
+     
       this.broadcastingChannel.close();
-      this.router.navigateByUrl('\Login');
+      
   }
 }

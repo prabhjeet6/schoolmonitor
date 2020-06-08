@@ -8,12 +8,13 @@ import { ForgotPasswordComponent } from 'src/app/forgot-password/forgot-password
 import { LogOutComponent } from 'src/app/log-out/log-out.component';
 
 const routes: Routes = [
-  { path: 'LogOut', component: LogOutComponent,canDeactivate: [AuthGuard] },
+ 
   { path: 'ForgotPassword', component: ForgotPasswordComponent },
   { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard],canDeactivate: [AuthGuard] },
   { path: 'Test', component: TestComponent, canActivate: [AuthGuard], canDeactivate: [AuthGuard] },
+ 
   { path: '', redirectTo: '/Login', pathMatch: 'full' },
-  { path: 'Login', component: LoginComponent }
+  { path: 'Login', component: LoginComponent,canDeactivate: [AuthGuard] }
   // {path:'detail/:id', component:HeroDetailComponent},
   //The colon (:) in the path indicates that :id is a placeholder for a specific hero id.
 

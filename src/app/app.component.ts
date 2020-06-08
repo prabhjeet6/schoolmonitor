@@ -16,7 +16,7 @@ export class AppComponent  implements DoCheck{
     
     this.recieverChannel.addEventListener('message', (e) => {
     if(e.data.cmd=='logOut'){
-      this.router.navigateByUrl('\LogOut');
+      this.router.navigateByUrl('/Login');
       this.recieverChannel.close();
     }
     

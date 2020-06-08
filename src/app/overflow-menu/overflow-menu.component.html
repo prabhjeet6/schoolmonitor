@@ -3,7 +3,8 @@
   <mat-icon>more_vert</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
-  <button id="logOut" mat-menu-item  routerLink='/LogOut' >
+  <button  id="logOut" mat-menu-item (click)="clickMenuItemLogOut() " >
+      
     <!--<mat-icon>"./src/assets/LogOut.svg"</mat-icon>-->
     <!--<img src="src/assets/LogOut.svg">-->
     <span>Log Out</span>
