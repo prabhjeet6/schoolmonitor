@@ -5,7 +5,7 @@ import { ComponentPortal, Portal, TemplatePortal } from '@angular/cdk/portal';
 import { ResetPasswordService } from '../service/reset-password.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { FormGroup, FormControl,Validators  } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -24,13 +24,13 @@ export class ResetPasswordComponent implements OnInit {
   selectedPortal: Portal<any>;
   schoolDomainsRequest: Observable<string[]>;
   subscriptionObject: Subscription;
-  
+  formValidStatus:boolean;
   accountRetrivalForm = new FormGroup({
-   Email: new FormControl('',[
-  	Validators.required,
-    Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
-    Schoolname: new FormControl('',[Validators.required])
-    });
+    Email: new FormControl('', [
+      Validators.required,
+      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+    Schoolname: new FormControl('', [Validators.required])
+  });
 
   @ViewChild('findAccountTemplate') findAccountTemplate: TemplateRef<any>;
   @ViewChild('otpTemplate') otpTemplate: TemplateRef<any>;
@@ -42,19 +42,27 @@ export class ResetPasswordComponent implements OnInit {
     this.changePasswordTemplatePortal = new TemplatePortal(this.changePasswordTemplate, this._viewContainerRef);
     this.selectedPortal = this.findAccountTemplatePortal;
     this.schoolDomainsRequest = this.resetPasswordService.getSchoolDomains();
-    this.subscriptionObject = this.schoolDomainsRequest.subscribe(x => {  this.schoolList = x; }, err => { console.log(" Error on fetching schoolDomains " + err) }, () => this.subscriptionObject.unsubscribe);
+    this.subscriptionObject = this.schoolDomainsRequest.subscribe(x => { this.schoolList = x; }, err => { console.log(" Error on fetching schoolDomains " + err) }, () => this.subscriptionObject.unsubscribe);
 
   }
 
-  get Email(){
+  get Email() {
     return this.accountRetrivalForm.get('Email')
-    }
+  }
 
-    get Schoolname(){
-      return this.accountRetrivalForm.get('Schoolname')
-      }
+  get Schoolname() {
+    return this.accountRetrivalForm.get('Schoolname')
+  }
 
-      getOTP(){
-        
-      }
+  getOneTimePassword():boolean{
+   if( this.accountRetrivalForm.get('Schoolname').invalid||this.accountRetrivalForm.get('Email').invalid){
+    this.formValidStatus=false;
+    return false;
+  }
+  else{
+    this.selectedPortal=this.otpTemplatePortal;
+    return true;
+  }
+  }
 }
+
