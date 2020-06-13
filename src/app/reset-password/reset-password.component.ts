@@ -28,7 +28,8 @@ export class ResetPasswordComponent implements OnInit {
   accountRetrivalForm = new FormGroup({
    Email: new FormControl('',[
   	Validators.required,
-  	Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
+    Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+    Schoolname: new FormControl('',[Validators.required])
     });
 
   @ViewChild('findAccountTemplate') findAccountTemplate: TemplateRef<any>;
@@ -49,4 +50,11 @@ export class ResetPasswordComponent implements OnInit {
     return this.accountRetrivalForm.get('Email')
     }
 
+    get Schoolname(){
+      return this.accountRetrivalForm.get('Schoolname')
+      }
+
+      getOTP(){
+        
+      }
 }
