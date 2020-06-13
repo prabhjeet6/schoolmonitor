@@ -23,8 +23,8 @@
                 </form>
              </mat-card-content>
              <mat-card-actions>
-                <button type="button" class="btn btn-info btn-xl " tooltip="Login to enter Home Page"  (click)="login()"> Login </button>
-               <a [routerLink]="['/ForgotPassword']"> <button mat-button  color="accent" >Forgot Password?</button></a>
+                <button type="button" class="btn btn-info btn-xl" tooltip="Login to enter Home Page"  (click)="login()"> Login </button>
+               <a [routerLink]="['/ResetPassword']"> <button mat-button  color="accent" (click)="forgotPassword()">Forgot Password?</button></a>
                 <div *ngIf="loginStatus!=undefined && loginStatus ">
                    <!--<alert  type="success" >
                       <strong>Well done!</strong> You successfully Logged in.

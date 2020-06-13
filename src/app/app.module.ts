@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms'; 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule }    from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
@@ -19,7 +19,7 @@ import { AuthGuardService } from 'src/app/auth-guard.service';
 
 import { MatGridListModule, MatMenuModule, MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { OnlineCourseworkComponent } from './online-coursework/online-coursework.component';
@@ -28,7 +28,10 @@ import { HeaderComponent } from './header/header.component';
 import { OverflowMenuComponent } from './overflow-menu/overflow-menu.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import {PortalModule} from '@angular/cdk/portal';
 
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -43,7 +46,7 @@ export function tokenGetter() {
     
     TestComponent,
     DashboardComponent,
-    ForgotPasswordComponent,
+   
     
     AdminConsoleComponent,
     OnlineCourseworkComponent,
@@ -51,11 +54,15 @@ export function tokenGetter() {
     HeaderComponent,
     OverflowMenuComponent,
     PageNotFoundComponent,
+    ResetPasswordComponent,
+    
+   
    
     
     
   ],
   imports: [
+    ReactiveFormsModule ,
     HttpClientModule,
     FormsModule,
     BrowserModule,
@@ -86,6 +93,8 @@ export function tokenGetter() {
      MatButtonModule,
 
      LayoutModule,
+     PortalModule,
+     MatSelectModule
    
   ],
   providers: [],

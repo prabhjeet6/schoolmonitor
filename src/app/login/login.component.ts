@@ -7,6 +7,8 @@ import { History } from 'ngx-bootstrap/utils/facade/browser';
 import { UtilsService } from 'src/app/utils/utils.service';
 import { LoginCredentials } from 'src/app/login-credentials';
 import { Injectable } from '@angular/core';
+
+
 /**@author Prabhjeet Singh */
 @Component({
   selector: 'app-login',
@@ -51,10 +53,12 @@ export class LoginComponent implements OnInit {
 
   redirectToIntendedUrl(): void {
     localStorage.setItem('userToken', this.userToken['Token']);
-    if (this.auth.redirectUrl == undefined){
+    if (this.auth.redirectUrl === undefined){
       this.router.navigateByUrl(`/Dashboard`);
     }
     else {this.router.navigateByUrl(this.auth.redirectUrl);
     }
   }
+  
+ 
 }
