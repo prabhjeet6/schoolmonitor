@@ -7,7 +7,7 @@ import { History } from 'ngx-bootstrap/utils/facade/browser';
 import { UtilsService } from 'src/app/utils/utils.service';
 import { LoginCredentials } from 'src/app/login-credentials';
 import { Injectable } from '@angular/core';
-
+import { AbstractControl,FormGroup, FormControl, Validators } from '@angular/forms';
 
 /**@author Prabhjeet Singh */
 @Component({
@@ -27,7 +27,12 @@ export class LoginComponent implements OnInit {
   loginCredentials: any;
   observableLoginRequest: Observable<object>;
   subscriptionObject: Subscription;
-
+  loginForm = new FormGroup({
+    Username: new FormControl('', [
+      Validators.required,usernameValidator
+      ]),
+    password: new FormControl('', [Validators.required])
+  });
   constructor(public auth: AuthService, public utils: UtilsService, public router: Router) {
     this.loginCredentials = new LoginCredentials();
   }
@@ -62,3 +67,10 @@ export class LoginComponent implements OnInit {
   
  
 }
+//Custom Validator Function
+function usernameValidator (control: AbstractControl):{[key: string]: boolean} | null {
+  if(  (control.value.indexOf("/") == -1&&control.value.indexOf("\\")==-1)){
+  return {'usernameValidator': true}
+  }
+  return null;
+  };
