@@ -6,6 +6,7 @@ import { ResetPasswordService } from '../service/reset-password.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PasswordRecoveryModel } from 'src/app/model/password-recovery-model';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -14,9 +15,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 /**@author Prabhjeet Singh */
 export class ResetPasswordComponent implements OnInit {
 
-  constructor(private utilsService: UtilsService, private _viewContainerRef: ViewContainerRef, private resetPasswordService: ResetPasswordService) { }
-  domain: string;
-  emailId: string;
+  constructor(public passwordRecoveryModel:PasswordRecoveryModel,private utilsService: UtilsService, private _viewContainerRef: ViewContainerRef, private resetPasswordService: ResetPasswordService) { }
+  
   findAccountTemplatePortal: TemplatePortal<any>;
   otpTemplatePortal: TemplatePortal<any>;
   changePasswordTemplatePortal: TemplatePortal<any>;
@@ -31,7 +31,9 @@ export class ResetPasswordComponent implements OnInit {
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
     Schoolname: new FormControl('', [Validators.required])
   });
-
+  requestOTP:Observable<number>;
+  oneTiemPassword:number;
+  
   @ViewChild('findAccountTemplate') findAccountTemplate: TemplateRef<any>;
   @ViewChild('otpTemplate') otpTemplate: TemplateRef<any>;
   @ViewChild('changePasswordTemplate') changePasswordTemplate: TemplateRef<any>;
@@ -43,7 +45,7 @@ export class ResetPasswordComponent implements OnInit {
     this.selectedPortal = this.findAccountTemplatePortal;
     this.schoolDomainsRequest = this.resetPasswordService.getSchoolDomains();
     this.subscriptionObject = this.schoolDomainsRequest.subscribe(x => { this.schoolList = x; }, err => { console.log(" Error on fetching schoolDomains " + err) }, () => this.subscriptionObject.unsubscribe);
-
+    
   }
 
   get Email() {
@@ -61,6 +63,11 @@ export class ResetPasswordComponent implements OnInit {
   }
   else{
     this.selectedPortal=this.otpTemplatePortal;
+    this.passwordRecoveryModel.schoolname=this.Schoolname.value as string;
+    this.passwordRecoveryModel.emailId=this.Email.value as string;
+    this.requestOTP=this.resetPasswordService.sendOTPRequest(this.passwordRecoveryModel);
+    this.subscriptionObject=this.requestOTP.subscribe(x=>{this.oneTiemPassword=x; console.log(x);}, err => { console.log(" Error on fetching oneTimePassword " + err) }, () => this.subscriptionObject.unsubscribe);
+
     return true;
   }
   }
