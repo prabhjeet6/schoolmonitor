@@ -29,7 +29,8 @@ export class ResetPasswordComponent implements OnInit {
     Email: new FormControl('', [
       Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
-    Schoolname: new FormControl('', [Validators.required])
+    Schoolname: new FormControl('', [Validators.required]),
+    recaptcha :new FormControl('', [Validators.required])
   });
   requestOTP:Observable<number>;
   oneTiemPassword:number;
@@ -57,7 +58,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   getOneTimePassword():boolean{
-   if( this.accountRetrivalForm.get('Schoolname').invalid||this.accountRetrivalForm.get('Email').invalid){
+   if( this.accountRetrivalForm.get('Schoolname').invalid||this.accountRetrivalForm.get('Email').invalid||this.accountRetrivalForm.get('recaptcha').invalid){
     this.formValidStatus=false;
     return false;
   }
@@ -70,6 +71,10 @@ export class ResetPasswordComponent implements OnInit {
 
     return true;
   }
+  }
+
+  showResponse(event){
+
   }
 }
 

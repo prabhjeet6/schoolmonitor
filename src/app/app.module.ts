@@ -17,7 +17,7 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { TestComponent } from './test/test.component';
 import { AuthGuardService } from 'src/app/auth-guard.service';
 
-import { MatGridListModule, MatMenuModule, MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
+import { MatGridListModule, MatMenuModule, MatFormFieldModule,MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 
 
@@ -32,7 +32,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import {PortalModule} from '@angular/cdk/portal';
 
 import {MatSelectModule} from '@angular/material/select';
-
+import {CaptchaModule} from 'primeng/captcha';
 
 
 
@@ -62,6 +62,7 @@ export function tokenGetter() {
     
   ],
   imports: [
+    CaptchaModule,
     ReactiveFormsModule ,
     HttpClientModule,
     FormsModule,
@@ -94,7 +95,8 @@ export function tokenGetter() {
 
      LayoutModule,
      PortalModule,
-     MatSelectModule
+     MatSelectModule,
+     MatFormFieldModule
    
   ],
   providers: [],

@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-one-time-password": [
+        "dist/ngx-one-time-password"
+      ],
+      "ngx-one-time-password/*": [
+        "dist/ngx-one-time-password/*"
+      ]
+    }
   }
 }
