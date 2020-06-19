@@ -5,7 +5,7 @@ import { ComponentPortal, Portal, TemplatePortal } from '@angular/cdk/portal';
 import { ResetPasswordService } from '../service/reset-password.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AbstractControl,ReactiveFormsModule,FormGroup, FormControl, Validators } from '@angular/forms';
 import { PasswordRecoveryModel } from 'src/app/model/password-recovery-model';
 @Component({
   selector: 'app-reset-password',
@@ -16,7 +16,7 @@ import { PasswordRecoveryModel } from 'src/app/model/password-recovery-model';
 export class ResetPasswordComponent implements OnInit {
 
   constructor(public passwordRecoveryModel: PasswordRecoveryModel, private utilsService: UtilsService, private _viewContainerRef: ViewContainerRef, private resetPasswordService: ResetPasswordService) { }
-
+  validForm:boolean|undefined;
   findAccountTemplatePortal: TemplatePortal<any>;
   otpTemplatePortal: TemplatePortal<any>;
   changePasswordTemplatePortal: TemplatePortal<any>;
@@ -24,13 +24,13 @@ export class ResetPasswordComponent implements OnInit {
   selectedPortal: Portal<any>;
   schoolDomainsRequest: Observable<string[]>;
   subscriptionObject: Subscription;
-  captchaResponse: boolean;
+  captchaResponse: boolean|undefined;
   accountRetrivalForm = new FormGroup({
     Email: new FormControl('', [
       Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
     Schoolname: new FormControl('', [Validators.required]),
-    //recaptcha :new FormControl('',[Validators.required])
+    
   });
   requestOTP: Observable<number>;
   oneTiemPassword: number;
@@ -59,11 +59,11 @@ export class ResetPasswordComponent implements OnInit {
 
   getOneTimePassword(): boolean {
     if (this.accountRetrivalForm.invalid|| this.captchaResponse != true ) {
-      
+      this.validForm=false;
       return false;
     }
     else {
-      
+      this.validForm=true;
       this.selectedPortal = this.otpTemplatePortal;
       this.passwordRecoveryModel.schoolname = this.Schoolname.value as string;
       this.passwordRecoveryModel.emailId = this.Email.value as string;
@@ -76,6 +76,8 @@ export class ResetPasswordComponent implements OnInit {
 
   showResponse(event) {
     this.captchaResponse = true;
+     //call to a backend to verify against recaptcha with private key and return boolean accordingly
+    
   }
   Back() {
     if (this.selectedPortal === this.otpTemplatePortal) {
