@@ -16,7 +16,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { JwtModule } from "@auth0/angular-jwt";
 import { TestComponent } from './test/test.component';
 import { AuthGuardService } from 'src/app/auth-guard.service';
-
+import { NgOtpInputModule } from  'ng-otp-input';
 import { MatGridListModule, MatMenuModule, MatFormFieldModule,MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -96,7 +96,8 @@ export function tokenGetter() {
      LayoutModule,
      PortalModule,
      MatSelectModule,
-     MatFormFieldModule
+     MatFormFieldModule,
+     NgOtpInputModule 
    
   ],
   providers: [],
