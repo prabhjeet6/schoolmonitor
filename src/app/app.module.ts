@@ -62,11 +62,12 @@ export function tokenGetter() {
     
   ],
   imports: [
-    CaptchaModule,
+    BrowserModule,
     ReactiveFormsModule ,
     HttpClientModule,
     FormsModule,
-    BrowserModule,
+     
+    
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -97,8 +98,8 @@ export function tokenGetter() {
      PortalModule,
      MatSelectModule,
      MatFormFieldModule,
-     NgOtpInputModule 
-   
+     NgOtpInputModule ,
+     CaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

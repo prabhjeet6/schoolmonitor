@@ -17,6 +17,7 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor(public passwordRecoveryModel: PasswordRecoveryModel, private utilsService: UtilsService, private _viewContainerRef: ViewContainerRef, private resetPasswordService: ResetPasswordService) { }
   validForm:boolean|undefined;
+  oneTimePassword:number;
   findAccountTemplatePortal: TemplatePortal<any>;
   otpTemplatePortal: TemplatePortal<any>;
   changePasswordTemplatePortal: TemplatePortal<any>;
@@ -25,6 +26,8 @@ export class ResetPasswordComponent implements OnInit {
   schoolDomainsRequest: Observable<string[]>;
   subscriptionObject: Subscription;
   captchaResponse: boolean|undefined;
+  @ViewChild('ngOTPInput') ngOtpInput:any;
+  
   accountRetrivalForm = new FormGroup({
     Email: new FormControl('', [
       Validators.required,
@@ -33,7 +36,7 @@ export class ResetPasswordComponent implements OnInit {
     
   });
   requestOTP: Observable<number>;
-  oneTiemPassword: number;
+  otp:string;
 
   @ViewChild('findAccountTemplate') findAccountTemplate: TemplateRef<any>;
   @ViewChild('otpTemplate') otpTemplate: TemplateRef<any>;
@@ -68,7 +71,7 @@ export class ResetPasswordComponent implements OnInit {
       this.passwordRecoveryModel.schoolname = this.Schoolname.value as string;
       this.passwordRecoveryModel.emailId = this.Email.value as string;
       this.requestOTP = this.resetPasswordService.sendOTPRequest(this.passwordRecoveryModel);
-      this.subscriptionObject = this.requestOTP.subscribe(x => { this.oneTiemPassword = x; console.log(x); }, err => { console.log(" Error on fetching oneTimePassword " + err) }, () => this.subscriptionObject.unsubscribe);
+      this.subscriptionObject = this.requestOTP.subscribe(x => { this.oneTimePassword = x;  }, err => { console.log(" Error on fetching oneTimePassword " + err) }, () => this.subscriptionObject.unsubscribe);
 
       return true;
     }
@@ -77,7 +80,8 @@ export class ResetPasswordComponent implements OnInit {
   showResponse(event) {
     this.captchaResponse = true;
      //call to a backend to verify against recaptcha with private key and return boolean accordingly
-    
+    //TODO:not working;
+    //this.resetPasswordService.verifyCaptcha().subscribe(x => { console.log('response from google Captcha: ' + x['success']) }, err => {  console.log('err from google Captcha: ' + err)  }, () => this.subscriptionObject.unsubscribe);
   }
   Back() {
     if (this.selectedPortal === this.otpTemplatePortal) {
@@ -88,6 +92,13 @@ export class ResetPasswordComponent implements OnInit {
     else if (this.selectedPortal === this.changePasswordTemplatePortal) {
       this.selectedPortal = this.otpTemplatePortal;
     }
+  }
+  verifyOneTimePassword(){
+    
+   //if(this.otp==this.oneTimePassword){
+   console.log(this.otp);
+     this.selectedPortal=this.changePasswordTemplatePortal;
+  // }
   }
 }
 
