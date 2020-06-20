@@ -17,7 +17,8 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor(public passwordRecoveryModel: PasswordRecoveryModel, private utilsService: UtilsService, private _viewContainerRef: ViewContainerRef, private resetPasswordService: ResetPasswordService) { }
   validForm:boolean|undefined;
-  oneTimePassword:number;
+  enteredOneTimePassword:any;
+  recievedOneTimePassword:any;
   findAccountTemplatePortal: TemplatePortal<any>;
   otpTemplatePortal: TemplatePortal<any>;
   changePasswordTemplatePortal: TemplatePortal<any>;
@@ -59,7 +60,9 @@ export class ResetPasswordComponent implements OnInit {
   get Schoolname() {
     return this.accountRetrivalForm.get('Schoolname')
   }
-
+  onOtpChange(enteredOneTimePassword) {
+    this.enteredOneTimePassword = enteredOneTimePassword;
+  }
   getOneTimePassword(): boolean {
     if (this.accountRetrivalForm.invalid|| this.captchaResponse != true ) {
       this.validForm=false;
@@ -71,7 +74,7 @@ export class ResetPasswordComponent implements OnInit {
       this.passwordRecoveryModel.schoolname = this.Schoolname.value as string;
       this.passwordRecoveryModel.emailId = this.Email.value as string;
       this.requestOTP = this.resetPasswordService.sendOTPRequest(this.passwordRecoveryModel);
-      this.subscriptionObject = this.requestOTP.subscribe(x => { this.oneTimePassword = x;  }, err => { console.log(" Error on fetching oneTimePassword " + err) }, () => this.subscriptionObject.unsubscribe);
+      this.subscriptionObject = this.requestOTP.subscribe(x => { this.recievedOneTimePassword = x;  }, err => { console.log(" Error on fetching oneTimePassword " + err) }, () => this.subscriptionObject.unsubscribe);
 
       return true;
     }
@@ -95,10 +98,10 @@ export class ResetPasswordComponent implements OnInit {
   }
   verifyOneTimePassword(){
     
-   //if(this.otp==this.oneTimePassword){
-   console.log(this.otp);
+   if(this.enteredOneTimePassword==this.recievedOneTimePassword){
+   
      this.selectedPortal=this.changePasswordTemplatePortal;
-  // }
+   }
   }
 }
 
