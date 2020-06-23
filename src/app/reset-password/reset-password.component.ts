@@ -5,8 +5,9 @@ import { ComponentPortal, Portal, TemplatePortal } from '@angular/cdk/portal';
 import { ResetPasswordService } from '../service/reset-password.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { AbstractControl,ReactiveFormsModule,FormGroup, FormControl, Validators } from '@angular/forms';
+import { AbstractControl,ReactiveFormsModule,FormGroup, FormControl, Validators, ValidationErrors  } from '@angular/forms';
 import { PasswordRecoveryModel } from 'src/app/model/password-recovery-model';
+import { ValidatorFn } from '@angular/forms/src/directives/validators';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -34,8 +35,34 @@ export class ResetPasswordComponent implements OnInit {
       Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
     Schoolname: new FormControl('', [Validators.required]),
+  } 
+);
+//cross validation to form
+matchPasswordsValidator:ValidatorFn=(control: FormGroup): ValidationErrors  | null =>{
+  let newPassword= control.get('newPassword').value;
+ 
+  let confirmNewPassword = control.get('confirmNewPassword').value;
+  
+  if (newPassword != confirmNewPassword) {
+    return {'matchPasswordsValidator': true}
+  }
+  else {
+    return null;
+  }
+};
+
+  changePasswordForm = new FormGroup({
+    newPassword: new FormControl('', [
+      Validators.required,
+      Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}')
+        
+      ])
+    ,confirmNewPassword: new FormControl('', [Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}')])
     
-  });
+  }
+  ,this.matchPasswordsValidator
+);
+
   requestOTP: Observable<number>;
   otp:string;
 
@@ -60,6 +87,12 @@ export class ResetPasswordComponent implements OnInit {
   get Schoolname() {
     return this.accountRetrivalForm.get('Schoolname')
   }
+  get NewPassword(){
+    return this.changePasswordForm.get('newPassword');
+  }
+  get ConfirmNewPassword(){
+    return this.changePasswordForm.get('confirmNewPassword');
+  }
   onOtpChange(enteredOneTimePassword) {
     this.enteredOneTimePassword = enteredOneTimePassword;
   }
@@ -81,11 +114,12 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   showResponse(event) {
-    this.captchaResponse = true;
+    
      //call to a backend to verify against recaptcha with private key and return boolean accordingly
-    //TODO:not working;
-    //this.resetPasswordService.verifyCaptcha().subscribe(x => { console.log('response from google Captcha: ' + x['success']) }, err => {  console.log('err from google Captcha: ' + err)  }, () => this.subscriptionObject.unsubscribe);
-  }
+    
+  this.resetPasswordService.verifyCaptcha().subscribe(x => { console.log('response from google Captcha: ' + x['success']) }, err => {  console.log('err from google Captcha: ' + err)  }, () => this.subscriptionObject.unsubscribe);
+  this.captchaResponse = true;
+}
   Back() {
     if (this.selectedPortal === this.otpTemplatePortal) {
       this.selectedPortal = this.findAccountTemplatePortal;
@@ -103,5 +137,5 @@ export class ResetPasswordComponent implements OnInit {
      this.selectedPortal=this.changePasswordTemplatePortal;
    }
   }
-}
 
+}

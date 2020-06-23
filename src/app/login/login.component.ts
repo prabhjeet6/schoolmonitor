@@ -8,6 +8,7 @@ import { UtilsService } from 'src/app/utils/utils.service';
 import { LoginCredentials } from 'src/app/login-credentials';
 import { Injectable } from '@angular/core';
 import { AbstractControl,FormGroup, FormControl, Validators } from '@angular/forms';
+import { String, StringBuilder } from 'typescript-string-operations';
 
 /**@author Prabhjeet Singh */
 @Component({
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
   subscriptionObject: Subscription;
   loginForm = new FormGroup({
     Username: new FormControl('', [
-      Validators.required,usernameValidator
+      Validators.required,this.usernameValidator
       ]),
     password: new FormControl('', [Validators.required])
   });
@@ -66,11 +67,12 @@ export class LoginComponent implements OnInit {
   }
   
  
-}
+
 //Custom Validator Function
-function usernameValidator (control: AbstractControl):{[key: string]: boolean} | null {
+ usernameValidator (control: AbstractControl):{[key: string]: boolean} | null {
   if(  (control.value.indexOf("/") == -1&&control.value.indexOf("\\")==-1)){
   return {'usernameValidator': true}
   }
   return null;
   };
+}
