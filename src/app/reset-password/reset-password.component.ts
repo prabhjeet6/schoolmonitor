@@ -8,6 +8,8 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { AbstractControl,ReactiveFormsModule,FormGroup, FormControl, Validators, ValidationErrors  } from '@angular/forms';
 import { PasswordRecoveryModel } from 'src/app/model/password-recovery-model';
 import { ValidatorFn } from '@angular/forms/src/directives/validators';
+import { Router } from '@angular/router';
+import { ChangePasswordModel } from 'src/app/model/change-password-model';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -16,7 +18,7 @@ import { ValidatorFn } from '@angular/forms/src/directives/validators';
 /**@author Prabhjeet Singh */
 export class ResetPasswordComponent implements OnInit {
 
-  constructor(public passwordRecoveryModel: PasswordRecoveryModel, private utilsService: UtilsService, private _viewContainerRef: ViewContainerRef, private resetPasswordService: ResetPasswordService) { }
+  constructor(public changePasswordModel:ChangePasswordModel,public router:Router,public passwordRecoveryModel: PasswordRecoveryModel, private utilsService: UtilsService, private _viewContainerRef: ViewContainerRef, private resetPasswordService: ResetPasswordService) { }
   validForm:boolean|undefined;
   enteredOneTimePassword:any;
   recievedOneTimePassword:any;
@@ -27,7 +29,10 @@ export class ResetPasswordComponent implements OnInit {
   selectedPortal: Portal<any>;
   schoolDomainsRequest: Observable<string[]>;
   subscriptionObject: Subscription;
+  changePasswordSubscription:Subscription;
   captchaResponse: boolean|undefined;
+  changePasswordRequest:Observable<boolean>;
+  passwordChanged:boolean;
   @ViewChild('ngOTPInput') ngOtpInput:any;
   
   accountRetrivalForm = new FormGroup({
@@ -65,7 +70,7 @@ matchPasswordsValidator:ValidatorFn=(control: FormGroup): ValidationErrors  | nu
 
   requestOTP: Observable<number>;
   otp:string;
-
+  otpVerified:boolean;
   @ViewChild('findAccountTemplate') findAccountTemplate: TemplateRef<any>;
   @ViewChild('otpTemplate') otpTemplate: TemplateRef<any>;
   @ViewChild('changePasswordTemplate') changePasswordTemplate: TemplateRef<any>;
@@ -135,7 +140,17 @@ matchPasswordsValidator:ValidatorFn=(control: FormGroup): ValidationErrors  | nu
    if(this.enteredOneTimePassword==this.recievedOneTimePassword){
    
      this.selectedPortal=this.changePasswordTemplatePortal;
+     this.otpVerified=true;
    }
+   else this.otpVerified=false;
   }
-
+  changePassword(){
+    this.changePasswordModel.emailId=this.Email.value;
+    this.changePasswordModel.domain=this.Schoolname.value;
+    this.changePasswordModel.newPassword=this.changePasswordForm.get('newPassword').value
+    this.changePasswordRequest=this.resetPasswordService.changePassword(this.changePasswordModel);
+    this.changePasswordSubscription=this.changePasswordRequest.subscribe(x=>{this.passwordChanged=x; console.log(x);},err=>{console.log(err);this.passwordChanged=false;},()=>{this.changePasswordSubscription.unsubscribe})
+    //this.router.navigateByUrl('/Login');
+    
+  }
 }
