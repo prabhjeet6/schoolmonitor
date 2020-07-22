@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "schoolmonitorbac-1592296948787",
+  "private_key_id": "a837bfcc7759f9f7ff0e28607e9ffff368f89783",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCNDfRrLbX2sBb7\nXYJoMGrxbKtZzbjTTlNNIAJnX3AyreC8gBP3u26CqjqGIDZuTeYQyumk9snLwKAa\n+3Y+USGsIjqTGKKBCSkg3kGXXdOiadJjnPFL+YLfn62BinRsuxJ+tMUf1H9+MhbK\nWq3kGAMRpmKxckK9OfBqloSQGX5nm9FGnwv6DSlrKbBMD0qI6lffWrjZPozdLSg4\nR5Dd59i27EXbTjEWOVLKpBYNSjfOD8qZ12OhB97P0bbFEfLCkwWbRXspLyNIuScg\nA2gRWFSN3U32sQWCod51xM5amfkBXZPEnRiOpF9nJmLBwAufzOjUtnnAuGlEnvjU\nDWMH0IEfAgMBAAECggEANyMnUeYSZRW8RhHtcfDLPQgvivEhuGe7pEBI8EOcRhM1\n8DlYlNQNhMIqElfxLvkAX7wRzMwzYZQwgZueQwnP0cunfex5SVtdWl3G4fZpTelz\ntkCZCgvEnsl6N1L5467UsfbTv3d/RsMpqXv80VaZjIKvvZFeiT1mvyOLOhDdGn53\nokgdc5vZ+fi2nbncfeeyr5ZEIUYfpH5csl3+KP1NeJJn06DNoyyZ8cLlrvrQV4hf\nCfBskIcHv8ALpiCXPGx36WHG5f43kfP5pXjO/dnph98tIhXhMhEF/V/MZ3y2ynTH\nf/pue5Eulyq6emP9x3QVSL0KeW96uUITe/rWe4ZiYQKBgQDAp8mpLcVcfjRXiOSl\n19Cg0WokvthcIO7pXB2RRjgOzRvmNvwU7wjn+K3ZO7z+Ew6o3oJ84GfuK/aAwssA\nOzwyLKJJcNSNbPlxhGpxWR9/REfjU2/fhlYxCDvr5Lrj2GSO1ngHPEhgqNDNXsOV\n/TTKfVn94pmY3/Pcm7SSt/AnyQKBgQC7bs9QGAi/vJXjUg+zOVKhDpwZyzE9Cl5A\nSq3wu6/N2hD21dHT2BozoqWPUmBIrS/fiQMsfm9zikvblzrh2aoLRj+9yLDy84RG\nc5TDFt3Np6uhgasASuXtrcBtgoLnmbKhEqjpDM/FqP8CCgEI22+FCnO8QfNc7VMG\nVb43wXKlpwKBgCpoRLGiy6DSfv8NuRbwbJIZxr2T7NhKv4xKpI+H32sSpyOD0vVg\nsJsvWEVLKwzacQ2m/R4z32zD7JznQ/wnDdcVkBuOZJtE85uTRELzFUXUZ+aYRTX0\nwiBE6bvBO4pP5cKzXvRoxp3QSzYJuA/aDrbL5PVH3fuSwIE9HQB20LxRAoGBAIeq\nMQw8GTkO+z7Kiuqitxg0RvC0jjMsagQHCdeRQjKxgE3pfjLj3DM7qrIOYfq4wEoA\nFfgCnBD5LOcIk2od7mKyujhYJxvy/u8vgaGjz2+nySbhgDB6Ber/NKUPLkkMiqrj\norbsuwbKx6lmLFGI4zNc2WCOK+Q7MzkGnuQkdSNJAoGBALnsEqawH9KxsaS3to3g\nWb0DSBkVu030dbKLP+PqebvgRNbFP4djklcTRRi0qUlO7uFbO2pDUejbjNlDsObU\nZs18cF7hTxc6HzQvAIyjYcRShmPDpvaydvlRO8UZnLq3jvCn8r3D8xP1AB0PYrke\ndWCR1ODBPN2/s4p7sKKLN5jE\n-----END PRIVATE KEY-----\n",
+  "client_email": "schoolmonitorbackend@schoolmonitorbac-1592296948787.iam.gserviceaccount.com",
+  "client_id": "103721418340195938037",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/schoolmonitorbackend%40schoolmonitorbac-1592296948787.iam.gserviceaccount.com"
+}

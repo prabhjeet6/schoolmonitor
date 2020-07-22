@@ -9,7 +9,7 @@ import { LoginCredentials } from 'src/app/login-credentials';
 import { Injectable } from '@angular/core';
 import { AbstractControl,FormGroup, FormControl, Validators } from '@angular/forms';
 import { String, StringBuilder } from 'typescript-string-operations';
-
+import{SpinnerService} from '../service/spinner.service';
 /**@author Prabhjeet Singh */
 @Component({
   selector: 'app-login',
@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
       ]),
     password: new FormControl('', [Validators.required])
   });
-  constructor(public auth: AuthService, public utils: UtilsService, public router: Router) {
+  constructor( public spinner:SpinnerService,public auth: AuthService, public utils: UtilsService, public router: Router) {
     this.loginCredentials = new LoginCredentials();
+  
   }
 
   ngOnInit() {
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): boolean {
+    
     if (this.utils.setCredentials(this.userNameWithDomain, this.loginCredentials, this.password)) {
       this.observableLoginRequest = this.auth.login(this.loginCredentials);
       this.subscriptionObject = this.observableLoginRequest.subscribe(x => { this.userToken = x; this.loginStatus = true; this.userNameWithDomain = ''; this.password = ''; }, err => { this.loginStatus = false; this.userNameWithDomain = ''; this.password = ''; }, () => this.subscriptionObject.unsubscribe);
@@ -58,7 +60,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectToIntendedUrl(): void {
-    localStorage.setItem('userToken', this.userToken['Token']);
+    localStorage.setItem('userToken', "Bearer "+this.userToken['Token']);
     if (this.auth.redirectUrl === undefined){
       this.router.navigateByUrl(`/Dashboard`);
     }
@@ -70,9 +72,14 @@ export class LoginComponent implements OnInit {
 
 //Custom Validator Function
  usernameValidator (control: AbstractControl):{[key: string]: boolean} | null {
-  if(  (control.value.indexOf("/") == -1&&control.value.indexOf("\\")==-1)){
-  return {'usernameValidator': true}
+  if(control.value!=undefined&&null!=control.value){
+  var  username=control.value as string;
+  if( ( (username.indexOf("/") == -1&&username.indexOf("\\")==-1))){
+  return {
+    'usernameValidator': true
   }
+  }
+}
   return null;
   };
 }

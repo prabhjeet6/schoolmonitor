@@ -1,22 +1,25 @@
-<mat-card class="z-depth-3" flex="50">
+<div>
+    <app-header></app-header>
+    <br/>
+    <br/>
+    <div class="jumbotron ">
+        <h1 class="display-4" class='customFont'>Hello, Folks!</h1>
+        <p class="lead" class='customFont'>This is Admin Console of the website, more Functionality may be available if development continues.</p>
+        <hr class="my-4">
+        <p class='customFont'>Currently, you can upload Student details for your school, from the button below.</p>
 
-  <mat-card-header>
-    <mat-card-title>
-      <p >Admin Console</p>
-    </mat-card-title>
+        <form>
+            <div class="form-group">
+                <p-fileUpload customUpload="true" name="studentDataFile" accept=".xlsx, .xls,.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                    (uploadHandler)=onUpload($event)>
+                </p-fileUpload>
+            </div>
+        </form>
+    </div>
 
-  </mat-card-header>
-  <img  class= "img" mat-card-image src="../../assets/AdminDataUpload.svg" >
-  <mat-card-content>
-    <!--<form class="admin-form">
-
-      <mat-form-field class="admin-full-width">
-      </mat-form-field>
-
-    </form>-->
-  </mat-card-content>
-
-  <mat-card-actions>
-
-  </mat-card-actions>
-</mat-card>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <app-footer></app-footer>
+</div>

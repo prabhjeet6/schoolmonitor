@@ -14,13 +14,13 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { JwtModule } from "@auth0/angular-jwt";
-import { TestComponent } from './test/test.component';
+
 import { AuthGuardService } from 'src/app/auth-guard.service';
 import { NgOtpInputModule } from  'ng-otp-input';
 import { MatGridListModule, MatMenuModule, MatFormFieldModule,MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 
-
+import {FileUploadModule} from 'primeng/fileupload';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { OnlineCourseworkComponent } from './online-coursework/online-coursework.component';
 import { FooterComponent } from './footer/footer.component';
@@ -44,7 +44,7 @@ export function tokenGetter() {
     AppComponent,
     LoginComponent,
     
-    TestComponent,
+    
     DashboardComponent,
    
     
@@ -55,6 +55,8 @@ export function tokenGetter() {
     OverflowMenuComponent,
     PageNotFoundComponent,
     ResetPasswordComponent,
+   
+   
     
    
    
@@ -62,12 +64,13 @@ export function tokenGetter() {
     
   ],
   imports: [
+    FileUploadModule,
     BrowserModule,
     ReactiveFormsModule ,
     HttpClientModule,
     FormsModule,
      
-    
+  
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
