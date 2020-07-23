@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectToIntendedUrl(): void {
-    localStorage.setItem('userToken', "Bearer "+this.userToken['Token']);
+    localStorage.setItem('userToken', this.userToken['Token']);
     if (this.auth.redirectUrl === undefined){
       this.router.navigateByUrl(`/Dashboard`);
     }
