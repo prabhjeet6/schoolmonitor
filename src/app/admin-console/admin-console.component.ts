@@ -5,7 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 var httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data', 'Authorization': "Bearer " + localStorage.getItem('userToken') })
+  headers: new HttpHeaders({ 'Authorization':  localStorage.getItem('userToken'),'Accept':'multipart/form-data' })
   , responseType: 'blob'
 };
 @Component({
@@ -24,6 +24,7 @@ export class AdminConsoleComponent {
 
   onUpload(data) {
     var formData = new FormData();
+    if(null!=data)
     formData.append('studentDataFile', data.files[0], data.files[0].name);
     this.adminConsoleService.onUpload(formData).subscribe();
   }
