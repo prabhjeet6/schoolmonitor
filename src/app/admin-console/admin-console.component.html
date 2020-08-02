@@ -6,17 +6,24 @@
         <h1 class="display-4" class='customFont'>Hello, Folks!</h1>
         <p class="lead" class='customFont'>This is Admin Console of the website, more Functionality may be available if development continues.</p>
         <hr class="my-4">
-        <p class='customFont'>Currently, you can upload Student details for your school, from the button below.</p>
+        <p class='customFont'>Currently, you can upload Student details in Excel/CSV format, for your school, just select the File by clicking on the choose button below, or simply drag and drop the File over choose button.</p>
 
         <form>
             <div class="form-group">
-                <p-fileUpload customUpload="true" name="studentDataFile" accept=".xlsx, .xls,.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-                    (uploadHandler)=onUpload($event)>
+                <p-fileUpload #form class=".fileUpload" customUpload="true" name="studentDataFile" accept=".xlsx, .xls,.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                    (uploadHandler)=onUpload($event,form) 
+                     chooseIcon="../assets/chooseIcon.svg" uploadIcon="../assets/uploadIcon.svg" cancelIcon="../assets/cancelIcon.svg">
                 </p-fileUpload>
             </div>
         </form>
+        
     </div>
-
+    <div *ngIf="uploadStatus">
+        <alert type="success">File Uploaded Successfully!</alert>
+    </div>
+    <div *ngIf="uploadStatus!=undefined&&!uploadStatus">
+        <alert type="danger" class="alert">Something went wrong.Please try validating your session</alert>
+    </div>
     <br/>
     <br/>
     <br/>

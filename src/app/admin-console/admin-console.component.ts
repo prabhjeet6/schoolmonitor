@@ -19,14 +19,19 @@ export class AdminConsoleComponent {
 
   }
 
+subscription:Subscription;
+uploadStatus:boolean|undefined;
 
-
-
-  onUpload(data) {
+  onUpload(data,form) {
     var formData = new FormData();
-    if(null!=data)
+    if(null!=data){
     formData.append('studentDataFile', data.files[0], data.files[0].name);
-    this.adminConsoleService.onUpload(formData).subscribe();
+    
+    this.subscription=this.adminConsoleService.onUpload(formData).subscribe(x => {/*setTimeout(()=> { this.uploadStatus = true;},2000);*/  this.uploadStatus = true;}, err => { this.uploadStatus = false; }, () => {this.subscription.unsubscribe});
+    form.clear();  
+  }
+
+    
   }
 
 

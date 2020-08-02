@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DoCheck } from '@angular/core/src/metadata/lifecycle_hooks';
+import { DoCheck, OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +13,9 @@ export class DashboardComponent implements OnInit {
 
   
   ngOnInit() {
+
   }
+ 
 
  
 

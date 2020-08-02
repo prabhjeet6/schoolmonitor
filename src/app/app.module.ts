@@ -33,6 +33,7 @@ import {PortalModule} from '@angular/cdk/portal';
 
 import {MatSelectModule} from '@angular/material/select';
 import {CaptchaModule} from 'primeng/captcha';
+import { MessagesComponent } from './messages/messages.component';
 
 
 
@@ -55,6 +56,7 @@ export function tokenGetter() {
     OverflowMenuComponent,
     PageNotFoundComponent,
     ResetPasswordComponent,
+    MessagesComponent,
    
    
     
