@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   loginCredentials: any;
   observableLoginRequest: Observable<object>;
   subscriptionObject: Subscription;
- // loadingStatus:boolean;
+  loadingStatus:boolean;
   loginForm = new FormGroup({
     Username: new FormControl('', [
       Validators.required,this.usernameValidator
@@ -50,9 +50,9 @@ export class LoginComponent implements OnInit {
   login(): boolean {
     
     if (this.utils.setCredentials(this.userNameWithDomain, this.loginCredentials, this.password)) {
-     
+      this.loadingStatus=true;
       this.observableLoginRequest = this.auth.login(this.loginCredentials);
-      this.subscriptionObject = this.observableLoginRequest.subscribe(x => {setTimeout(()=> {this.userToken = x; this.loginStatus = true; this.userNameWithDomain = ''; this.password = '';},2000); }, err => { this.loginStatus = false; this.userNameWithDomain = ''; this.password = ''; }, () => this.subscriptionObject.unsubscribe);
+      this.subscriptionObject = this.observableLoginRequest.subscribe(x => {setTimeout(()=> {this.loadingStatus=false;this.userToken = x; this.loginStatus = true; this.userNameWithDomain = ''; this.password = '';},2000); }, err => {this.loadingStatus=false; this.loginStatus = false; this.userNameWithDomain = ''; this.password = ''; }, () => this.subscriptionObject.unsubscribe);
     } else {
       this.loginStatus = false;
       this.userNameWithDomain = '';

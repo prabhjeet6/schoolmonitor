@@ -18,10 +18,10 @@
         </form>
         
     </div>
-    <div *ngIf="uploadStatus">
+    <div *ngIf="uploadStatus===true">
         <alert type="success">File Uploaded Successfully!</alert>
     </div>
-    <div *ngIf="uploadStatus!=undefined&&!uploadStatus">
+    <div *ngIf="uploadStatus===false">
         <alert type="danger" class="alert">Something went wrong.Please try validating your session</alert>
     </div>
     <br/>

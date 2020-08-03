@@ -18,7 +18,7 @@ export class AuthService {
   redirectUrl: string;
   private loginUrl = 'http://localhost:8088/auth/signin';
   requestBody: string;
-  tokenExpireFlag:boolean;
+  
   broadcastingChannel = new BroadcastChannel('auth');
   constructor(private messageService:MessageService,public jwtHelper: JwtHelperService, private http: HttpClient, private router: Router) { }
   public isAuthenticated(): boolean {
@@ -28,14 +28,17 @@ export class AuthService {
 
   confirmLogin(url: string, router: Router): boolean {
     if (this.isAuthenticated()) {
+     
       return true;
     }
-    if(this.tokenExpireFlag===false||this.tokenExpireFlag===undefined)
+  
+   if(router.url!='/Login') 
     this.messageService.add("Sorry, Your Session has Expired! Please login again to Continue");
-    this.tokenExpireFlag=true;
+    
     this.redirectUrl = url;
     router.navigateByUrl('/Login');
     return false;
+    
   }
 
   login(loginCredentials: LoginCredentials): Observable<object> {
@@ -48,7 +51,8 @@ export class AuthService {
   logOut() {
       localStorage.clear();
       this.broadcastingChannel.postMessage({ cmd: 'logOut' });
-      this.broadcastingChannel.close();
+      
       this.router.navigateByUrl('/Login');
+      this.broadcastingChannel.close();
   }
 }

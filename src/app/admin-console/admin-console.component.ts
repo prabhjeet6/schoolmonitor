@@ -27,7 +27,7 @@ uploadStatus:boolean|undefined;
     if(null!=data){
     formData.append('studentDataFile', data.files[0], data.files[0].name);
     
-    this.subscription=this.adminConsoleService.onUpload(formData).subscribe(x => {/*setTimeout(()=> { this.uploadStatus = true;},2000);*/  this.uploadStatus = true;}, err => { this.uploadStatus = false; }, () => {this.subscription.unsubscribe});
+    this.subscription=this.adminConsoleService.onUpload(formData).subscribe(x => {this.uploadStatus = true;/*setTimeout(()=> { this.uploadStatus = true;},2000); */ }, err => { this.uploadStatus = false; }, () => {this.subscription.unsubscribe});
     form.clear();  
   }
 

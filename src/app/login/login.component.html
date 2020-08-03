@@ -1,71 +1,89 @@
+<div>
 
-        
-<div >
-    <app-header></app-header>
-    <app-messages></app-messages>
-    <div class="text-center"  ><br/><br/><br/><br/><h2 class="introHeader" >Sign in<br/>to get a digital experience <br/>of your school</h2></div>
-    <div class="img" ><img  src="../assets/LogIn.svg"  /></div>
-    <div class="main-div" >
-       <div class="card">
-          <mat-card class="z-depth-3" flex="50" >
-             <mat-card-header>
-                <mat-card-title>
-                   <p class="text-center">Welcome to SchoolMonitor!</p>
-                </mat-card-title>
-                <!-- Sign to get a digital experience of your school.-->
-             </mat-card-header>
-             <!--<img mat-card-image src="../assets/Logo2.PNG" alt="Logo" style="width:10%">-->
-             <mat-card-content>
-                <form class="login-form"[formGroup]="loginForm">
-                        <div class="form-group">
-                   <mat-form-field class="login-full-width">
-                      <input  (Keyup.enter)="login()" formControlName="Username" [class.is-invalid]="loginForm.get('Username').invalid && loginForm.get('Username').touched" (keydown.enter)="login()" matInput placeholder="Username" type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain"  />
-                   </mat-form-field>
-                        </div>
-                        <div class="form-group">
-                   <mat-form-field class="login-full-width">
-                      <input  (Keyup.enter)="login()" formControlName="password" [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched" (keydown.enter)="login()" matInput type="password" placeholder="password" [(ngModel)]="password" name="password" />
-                   </mat-form-field>
-                        </div>
-                </form>
-             </mat-card-content>
-             <mat-card-actions>
-                <button type="button"   class="btn btn-info btn-xl" tooltip="Login to enter Home Page"  (click)="login()"> Login </button>
-               <a [routerLink]="['/ResetPassword']"> <button mat-button  color="accent" >Forgot Password?</button></a>
-               <!--<div>
-                <div *ngIf="loadingStatus">
-                <img src="../assets/Loader.svg" >        
-                </div>
-               </div> -->
-               <div *ngIf="loginStatus!=undefined && loginStatus ">
-                   <!--<alert  type="success" >
+ <div *ngIf="!loadingStatus">
+        <app-header></app-header>
+        <app-messages></app-messages>
+        <div class="text-center">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <h2 class="introHeader">Sign in
+                        <br/>to get a digital experience
+                        <br/>of your school</h2>
+        </div>
+        <div class="img">
+                <img src="../assets/LogIn.svg" />
+        </div>
+        <div class="main-div">
+                <div class="card">
+                        <mat-card class="z-depth-3" flex="50">
+                                <mat-card-header>
+                                        <mat-card-title>
+                                                <p class="text-center">Welcome to SchoolMonitor!</p>
+                                        </mat-card-title>
+                                        <!-- Sign to get a digital experience of your school.-->
+                                </mat-card-header>
+                                <!--<img mat-card-image src="../assets/Logo2.PNG" alt="Logo" style="width:10%">-->
+                                <mat-card-content>
+                                        <form class="login-form" [formGroup]="loginForm">
+                                                <div class="form-group">
+                                                        <mat-form-field class="login-full-width">
+                                                                <input (Keyup.enter)="login()" formControlName="Username" [class.is-invalid]="loginForm.get('Username').invalid && loginForm.get('Username').touched"
+                                                                        (keydown.enter)="login()" matInput placeholder="Username"
+                                                                        type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain"
+                                                                />
+                                                        </mat-form-field>
+                                                </div>
+                                                <div class="form-group">
+                                                        <mat-form-field class="login-full-width">
+                                                                <input (Keyup.enter)="login()" formControlName="password" [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched"
+                                                                        (keydown.enter)="login()" matInput type="password" placeholder="password"
+                                                                        [(ngModel)]="password" name="password" />
+                                                        </mat-form-field>
+                                                </div>
+                                        </form>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                        <button type="button" class="btn btn-info btn-xl" tooltip="Login to enter Home Page" (click)="login()"> Login </button>
+                                        <a [routerLink]="['/ResetPassword']">
+                                                <button mat-button color="accent">Forgot Password?</button>
+                                        </a>
+
+                                        <div *ngIf="loginStatus!=undefined && loginStatus ">
+                                                <!--<alert  type="success" >
                       <strong>Well done!</strong> You successfully Logged in.
-                      </alert>--> 
-                   <div>{{redirectToIntendedUrl()}}</div>
-                </div>
-                <div *ngIf="loginStatus!=undefined && !loginStatus">
-                   <alert type="danger">
-                      <strong>Oh snap!</strong>
-                      <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-                   </alert>
-                </div>
- 
-                <div *ngIf="(loginForm.get('Username').invalid && loginForm.get('Username').touched) || loginForm.get('Username').dirty">
-                        <alert *ngIf="loginForm.get('Username').errors?.required" type="danger">Username is required</alert>
-                        <!--question mark(?) is a safe navigation operator-->
-                        <alert *ngIf="loginForm.get('Username').errors?.usernameValidator" type="danger">Please provide a valid Username</alert>
-                      </div>
+                      </alert>-->
+                                                <div>{{redirectToIntendedUrl()}}</div>
+                                        </div>
+                                        <div *ngIf="loginStatus!=undefined && !loginStatus">
+                                                <alert type="danger">
+                                                        <strong>Oh snap!</strong>
+                                                        <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+                                                </alert>
+                                        </div>
 
-                      <div *ngIf="(loginForm.get('password').invalid && loginForm.get('password').touched) || loginForm.get('password').dirty">
-                            <alert *ngIf="loginForm.get('password').errors?.required" type="danger">Password is required</alert>
-                            <!--question mark(?) is a safe navigation operator-->
-                            
-                      </div>
+                                        <div *ngIf="(loginForm.get('Username').invalid && loginForm.get('Username').touched) || loginForm.get('Username').dirty">
+                                                <alert *ngIf="loginForm.get('Username').errors?.required" type="danger">Username is required</alert>
+                                                <!--question mark(?) is a safe navigation operator-->
+                                                <alert *ngIf="loginForm.get('Username').errors?.usernameValidator" type="danger">Please provide a valid Username</alert>
+                                        </div>
 
-             </mat-card-actions>
-          </mat-card>
-       </div>
-    </div>
-    
-    <app-footer></app-footer>
- </div>
+                                        <div *ngIf="(loginForm.get('password').invalid && loginForm.get('password').touched) || loginForm.get('password').dirty">
+                                                <alert *ngIf="loginForm.get('password').errors?.required" type="danger">Password is required</alert>
+                                                <!--question mark(?) is a safe navigation operator-->
+
+                                        </div>
+
+                                </mat-card-actions>
+                        </mat-card>
+                </div>
+        </div>
+
+        <app-footer></app-footer>
+</div>
+
+<div *ngIf="loadingStatus">
+        <img class="Loader" src="../assets/Loader.svg" />
+</div>
+</div>
