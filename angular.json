@@ -11,9 +11,18 @@
       "schematics": {},
       "architect": {
         "build": {
+
+         
+          
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/schoolmonitor",
+           
+            "i18nLocale": "pa-Guru",
+            "i18nFormat": "xlf",
+            "aot": true,
+            "i18nFile": "src/messages.pa.xlf",
+            "outputPath": "dist",
+
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -35,6 +44,9 @@
             "es5BrowserSupport": true
           },
           "configurations": {
+
+           
+
             "production": {
               "fileReplacements": [
                 {
@@ -67,6 +79,9 @@
             "browserTarget": "schoolmonitor:build"
           },
           "configurations": {
+
+           
+
             "production": {
               "browserTarget": "schoolmonitor:build:production"
             }

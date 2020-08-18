@@ -3,16 +3,16 @@
     <br/>
     <br/>
     <div class="jumbotron ">
-        <h1 class="display-4" class='customFont'>Hello, Folks!</h1>
-        <p class="lead" class='customFont'>This is Admin Console of the website, more Functionality may be available if development continues.</p>
+        <h1 i18n class="display-4" class='customFont'>Hello, Folks!</h1>
+        <p i18n class="lead" class='customFont'>This is Admin Console of the website, more Functionality may be available if development continues.</p>
         <hr class="my-4">
-        <p class='customFont'>Currently, you can upload Student details in Excel/CSV format, for your school, just select the File by clicking on the choose button below, or simply drag and drop the File over choose button.</p>
+        <p i18n class='customFont'>Currently, you can upload Student details in Excel/CSV format, for your school, just select the File by clicking on the choose button below, or simply drag and drop the File over choose button.</p>
 
         <form>
             <div class="form-group">
                 <p-fileUpload #form class=".fileUpload" customUpload="true" name="studentDataFile" accept=".xlsx, .xls,.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                     (uploadHandler)=onUpload($event,form) 
-                     chooseIcon="../assets/chooseIcon.svg" uploadIcon="../assets/uploadIcon.svg" cancelIcon="../assets/cancelIcon.svg">
+                    chooseIcon="../assets/chooseIcon.svg" uploadIcon="../assets/uploadIcon.svg" cancelIcon="../assets/cancelIcon.svg">
                 </p-fileUpload>
             </div>
         </form>

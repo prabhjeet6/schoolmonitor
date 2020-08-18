@@ -106,7 +106,7 @@ export function tokenGetter() {
      NgOtpInputModule ,
      CaptchaModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <h2 class="introHeader">Sign in
+                <h2 i18n class="introHeader">Sign in
                         <br/>to get a digital experience
                         <br/>of your school</h2>
         </div>
@@ -20,7 +20,7 @@
                         <mat-card class="z-depth-3" flex="50">
                                 <mat-card-header>
                                         <mat-card-title>
-                                                <p class="text-center">Welcome to SchoolMonitor!</p>
+                                                <p i18n class="text-center">Welcome to SchoolMonitor!</p>
                                         </mat-card-title>
                                         <!-- Sign to get a digital experience of your school.-->
                                 </mat-card-header>
@@ -30,7 +30,7 @@
                                                 <div class="form-group">
                                                         <mat-form-field class="login-full-width">
                                                                 <input (Keyup.enter)="login()" formControlName="Username" [class.is-invalid]="loginForm.get('Username').invalid && loginForm.get('Username').touched"
-                                                                        (keydown.enter)="login()" matInput placeholder="Username"
+                                                                        (keydown.enter)="login()" matInput i18n-placeholder placeholder="Username"
                                                                         type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain"
                                                                 />
                                                         </mat-form-field>
@@ -38,16 +38,16 @@
                                                 <div class="form-group">
                                                         <mat-form-field class="login-full-width">
                                                                 <input (Keyup.enter)="login()" formControlName="password" [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched"
-                                                                        (keydown.enter)="login()" matInput type="password" placeholder="password"
+                                                                        (keydown.enter)="login()" matInput type="password" i18n-placeholder placeholder="password"
                                                                         [(ngModel)]="password" name="password" />
                                                         </mat-form-field>
                                                 </div>
                                         </form>
                                 </mat-card-content>
                                 <mat-card-actions>
-                                        <button type="button" class="btn btn-info btn-xl" tooltip="Login to enter Home Page" (click)="login()"> Login </button>
+                                        <button i18n type="button" class="btn btn-info btn-xl" tooltip="Login to enter Home Page" (click)="login()"> Login </button>
                                         <a [routerLink]="['/ResetPassword']">
-                                                <button mat-button color="accent">Forgot Password?</button>
+                                                <button i18n mat-button color="accent">Forgot Password?</button>
                                         </a>
 
                                         <div *ngIf="loginStatus!=undefined && loginStatus ">
@@ -58,19 +58,19 @@
                                         </div>
                                         <div *ngIf="loginStatus!=undefined && !loginStatus">
                                                 <alert type="danger">
-                                                        <strong>Oh snap!</strong>
-                                                        <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+                                                        <strong i18n >Oh snap!</strong>
+                                                        <a i18n href="#" class="alert-link">Change a few things up </a> <p i18n>and try submitting again.</p>
                                                 </alert>
                                         </div>
 
                                         <div *ngIf="(loginForm.get('Username').invalid && loginForm.get('Username').touched) || loginForm.get('Username').dirty">
-                                                <alert *ngIf="loginForm.get('Username').errors?.required" type="danger">Username is required</alert>
+                                                <alert  i18n *ngIf="loginForm.get('Username').errors?.required" type="danger">Username is required</alert>
                                                 <!--question mark(?) is a safe navigation operator-->
-                                                <alert *ngIf="loginForm.get('Username').errors?.usernameValidator" type="danger">Please provide a valid Username</alert>
+                                                <alert i18n  *ngIf="loginForm.get('Username').errors?.usernameValidator" type="danger">Please provide a valid Username</alert>
                                         </div>
 
                                         <div *ngIf="(loginForm.get('password').invalid && loginForm.get('password').touched) || loginForm.get('password').dirty">
-                                                <alert *ngIf="loginForm.get('password').errors?.required" type="danger">Password is required</alert>
+                                                <alert i18n *ngIf="loginForm.get('password').errors?.required" type="danger">Password is required</alert>
                                                 <!--question mark(?) is a safe navigation operator-->
 
                                         </div>

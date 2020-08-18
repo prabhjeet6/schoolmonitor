@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OnChanges, DoCheck } from '@angular/core/src/metadata/lifecycle_hooks';
+import { OnChanges, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
