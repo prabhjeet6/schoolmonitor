@@ -281,6 +281,20 @@
           <context context-type="linenumber">123</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="c7014c6360e94b236286b869c3fe0ea9911c0387" datatype="html">
+        <source>New Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">130</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b81fbd1b5d0723eba41870071d02065674bdd565" datatype="html">
+        <source>Confirm New Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="44e1cfacbfd68d49c0f236c9e430cd96467aa123" datatype="html">
         <source>change password </source>
         <context-group purpose="location">
