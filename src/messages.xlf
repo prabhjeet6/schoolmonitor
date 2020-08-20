@@ -123,7 +123,6 @@
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      
       <trans-unit id="1b19b2a07c760584eaa94b6bc7fa2c92b5d59e16" datatype="html">
         <source>© 2020 Copyright:</source>
         <context-group purpose="location">
@@ -171,6 +170,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c35a008ec0b7efd357be352ad40e9c3cc4c93123" datatype="html">
