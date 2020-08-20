@@ -11,18 +11,12 @@
       "schematics": {},
       "architect": {
         "build": {
-
-         
-          
           "builder": "@angular-devkit/build-angular:browser",
+
           "options": {
            
-            "i18nLocale": "pa-Guru",
-            "i18nFormat": "xlf",
-            "aot": true,
-            "i18nFile": "src/messages.pa.xlf",
+            
             "outputPath": "dist",
-
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -43,11 +37,46 @@
             "scripts": [],
             "es5BrowserSupport": true
           },
+          
           "configurations": {
-
-           
-
-            "production": {
+            
+            "pa-Guru": {
+              "outputPath": "dist/pa",
+              "i18nLocale": "pa-Guru",
+              "i18nFormat": "xlf",
+              "i18nFile": "src/messages.pa.xlf",
+              
+              "i18nMissingTranslation": "error",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "en-US": {
+              "outputPath": "dist/en",
+              "i18nLocale": "en-US",
+              "i18nFormat": "xlf",
+              "i18nFile": "src/messages.xlf",
+              
+              "i18nMissingTranslation": "error",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -79,11 +108,14 @@
             "browserTarget": "schoolmonitor:build"
           },
           "configurations": {
-
-           
-
             "production": {
               "browserTarget": "schoolmonitor:build:production"
+            },
+            "en-US": {
+              "browserTarget": "schoolmonitor:build:en-US"
+            },
+            "pa-Guru": {
+              "browserTarget": "schoolmonitor:build:pa-Guru"
             }
           }
         },
@@ -158,7 +190,6 @@
         }
       }
     }
-    
   },
   "defaultProject": "schoolmonitor"
 }
