@@ -7,7 +7,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start:en-US": "ng serve --configuration=en-US",
+    "start:pa-Guru": "ng serve --configuration=pa-Guru",
+    "build:en-US": "ng build --configuration=en-US",
+    "build:pa-Guru": "ng build --configuration=pa-Guru"
+    
+    
   },
   "private": true,
   "dependencies": {
