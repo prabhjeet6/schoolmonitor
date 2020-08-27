@@ -1,15 +1,15 @@
 import { Component, OnInit, AfterViewInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { UtilsService } from '../utils/utils.service';
-import { LoginCredentials } from 'src/app/login-credentials';
+import { LoginCredentials } from '../login-credentials';
 import { ComponentPortal, Portal, TemplatePortal } from '@angular/cdk/portal';
 import { ResetPasswordService } from '../service/reset-password.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { AbstractControl,ReactiveFormsModule,FormGroup, FormControl, Validators, ValidationErrors  } from '@angular/forms';
-import { PasswordRecoveryModel } from 'src/app/model/password-recovery-model';
+import { PasswordRecoveryModel } from '../model/password-recovery-model';
 import { ValidatorFn } from '@angular/forms/src/directives/validators';
 import { Router } from '@angular/router';
-import { ChangePasswordModel } from 'src/app/model/change-password-model';
+import { ChangePasswordModel } from '../model/change-password-model';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',

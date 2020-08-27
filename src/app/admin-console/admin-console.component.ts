@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { AdminConsoleService } from 'src/app/service/admin-console.service';
+import { AdminConsoleService } from '../service/admin-console.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpHeaders, HttpClient } from '@angular/common/http';

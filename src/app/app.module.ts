@@ -15,7 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { JwtModule } from "@auth0/angular-jwt";
 
-import { AuthGuardService } from 'src/app/auth-guard.service';
+import { AuthGuardService } from './auth-guard.service';
 import { NgOtpInputModule } from  'ng-otp-input';
 import { MatGridListModule, MatMenuModule, MatFormFieldModule,MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -67,7 +67,7 @@ export function tokenGetter() {
   ],
   imports: [
     FileUploadModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     ReactiveFormsModule ,
     HttpClientModule,
     FormsModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OnChanges, DoCheck } from '@angular/core/src/metadata/lifecycle_hooks';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-overflow-menu',

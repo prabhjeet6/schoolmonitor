@@ -12,11 +12,8 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-
           "options": {
-           
-            
-            "outputPath": "dist",
+            "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -37,15 +34,12 @@
             "scripts": [],
             "es5BrowserSupport": true
           },
-          
           "configurations": {
-            
             "pa-Guru": {
               "outputPath": "dist/pa",
               "i18nLocale": "pa-Guru",
               "i18nFormat": "xlf",
               "i18nFile": "src/messages.pa.xlf",
-              
               "i18nMissingTranslation": "error",
               "fileReplacements": [
                 {
@@ -75,7 +69,6 @@
               "i18nLocale": "en-US",
               "i18nFormat": "xlf",
               "i18nFile": "src/messages.xlf",
-              
               "i18nMissingTranslation": "error",
               "fileReplacements": [
                 {
@@ -158,6 +151,24 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         }
       }

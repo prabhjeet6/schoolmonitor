@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { History } from 'ngx-bootstrap/utils/facade/browser';
-import { UtilsService } from 'src/app/utils/utils.service';
-import { LoginCredentials } from 'src/app/login-credentials';
+import { UtilsService } from '../utils/utils.service';
+import { LoginCredentials } from '../login-credentials';
 import { Injectable } from '@angular/core';
 import { AbstractControl,FormGroup, FormControl, Validators } from '@angular/forms';
 import { String, StringBuilder } from 'typescript-string-operations';
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       ]),
     password: new FormControl('', [Validators.required])
   });
-  constructor( public spinner:SpinnerService,public auth: AuthService, public utils: UtilsService, public router: Router) {
+  constructor(public spinner:SpinnerService,public auth: AuthService, public utils: UtilsService, public router: Router) {
     this.loginCredentials = new LoginCredentials();
   
   }

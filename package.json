@@ -11,9 +11,11 @@
     "start:en-US": "ng serve --configuration=en-US",
     "start:pa-Guru": "ng serve --configuration=pa-Guru",
     "build:en-US": "ng build --configuration=en-US",
-    "build:pa-Guru": "ng build --configuration=pa-Guru"
-    
-    
+    "build:pa-Guru": "ng build --configuration=pa-Guru",
+    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve:ssr": "node dist/server",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
+    "build:client-and-server-bundles": "ng build  && ng run schoolmonitor:server:production"
   },
   "private": true,
   "dependencies": {
@@ -23,16 +25,22 @@
     "@angular/compiler": "^7.2.16",
     "@angular/core": "^7.2.16",
     "@angular/forms": "^7.2.16",
+    "@angular/http": "^7.2.16",
     "@angular/localize": "^10.0.9",
     "@angular/material": "^7.3.7",
     "@angular/platform-browser": "^7.2.16",
     "@angular/platform-browser-dynamic": "^7.2.16",
+    "@angular/platform-server": "^7.2.16",
     "@angular/router": "^7.2.16",
     "@auth0/angular-jwt": "^4.1.2",
+    "@nguniversal/express-engine": "0.0.0",
+    "@nguniversal/module-map-ngfactory-loader": "0.0.0",
     "angular-material-fileupload": "^2.0.0",
     "bootstrap": "4.2.1",
     "core-js": "^2.6.11",
+    "express": "^4.15.2",
     "hammerjs": "^2.0.8",
+    "localstorage-polyfill": "^1.0.1",
     "ng-otp-input": "^1.7.1",
     "ngx-bootstrap": "^4.3.0",
     "primeicons": "^1.0.0",
@@ -61,10 +69,12 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^4.2.0",
     "protractor": "^5.4.4",
+    "ts-loader": "^5.2.0",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "webpack-cli": "^3.1.0"
   }
 }

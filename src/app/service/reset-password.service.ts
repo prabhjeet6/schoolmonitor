@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { PasswordRecoveryModel } from 'src/app/model/password-recovery-model';
-import { ChangePasswordModel } from 'src/app/model/change-password-model';
+import { PasswordRecoveryModel } from '../model/password-recovery-model';
+import { ChangePasswordModel } from '../model/change-password-model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
