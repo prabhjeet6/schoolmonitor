@@ -7,7 +7,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpParams } from '@angular/common/http/src/params';
 import {MessageService} from '../service/message.service';
-
+declare var require: any;
+const { BroadcastChannel } = require('broadcast-channel');
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };

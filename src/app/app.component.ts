@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { OnChanges, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
+declare var require: any;
+const { BroadcastChannel } = require('broadcast-channel');
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
