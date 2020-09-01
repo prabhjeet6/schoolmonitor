@@ -15,7 +15,7 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build  && ng run schoolmonitor:server:production"
+    "build:client-and-server-bundles": "ng build --configuration=pa-Guru && ng build --configuration=en-US  && ng run schoolmonitor:server:production  &&  ng run schoolmonitor:server:en-US &&  ng run schoolmonitor:server:pa-Guru"
   },
   "private": true,
   "dependencies": {

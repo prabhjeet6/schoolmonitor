@@ -36,7 +36,8 @@
           },
           "configurations": {
             "pa-Guru": {
-              "outputPath": "dist/pa",
+              "baseHref": "/pa/",
+              "outputPath": "dist/browser/pa",
               "i18nLocale": "pa-Guru",
               "i18nFormat": "xlf",
               "i18nFile": "src/messages.pa.xlf",
@@ -65,7 +66,8 @@
               ]
             },
             "en-US": {
-              "outputPath": "dist/en",
+              "outputPath": "dist/browser/en",
+              "baseHref": "/en/",
               "i18nLocale": "en-US",
               "i18nFormat": "xlf",
               "i18nFile": "src/messages.xlf",
@@ -162,6 +164,21 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },"pa-Guru": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "en-US": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
