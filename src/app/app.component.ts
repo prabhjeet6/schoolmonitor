@@ -8,13 +8,14 @@ const { BroadcastChannel } = require('broadcast-channel');
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements DoCheck{
+export class AppComponent  //implements DoCheck
+{
   title = 'schoolmonitor';
-  recieverChannel = new BroadcastChannel('auth');
+  //recieverChannel = new BroadcastChannel('auth');
   constructor(public router:Router){
 
   }
-  ngDoCheck(){
+ /* ngDoCheck(){
     
     this.recieverChannel.addEventListener('message', (e) => {
     if(e.data.cmd=='logOut'){
@@ -24,6 +25,6 @@ export class AppComponent  implements DoCheck{
     
     });
     
-    }
+    }*/
    
 }
