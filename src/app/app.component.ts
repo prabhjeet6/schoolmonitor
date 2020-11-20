@@ -1,30 +1,17 @@
 import { Component } from '@angular/core';
 import { OnChanges, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
-declare var require: any;
-const { BroadcastChannel } = require('broadcast-channel');
+
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  //implements DoCheck
+export class AppComponent  
 {
   title = 'schoolmonitor';
-  //recieverChannel = new BroadcastChannel('auth');
   constructor(public router:Router){
-
-  }
- /* ngDoCheck(){
-    
-    this.recieverChannel.addEventListener('message', (e) => {
-    if(e.data.cmd=='logOut'){
-      this.router.navigateByUrl('/Login');
-      this.recieverChannel.close();
-    }
-    
-    });
-    
-    }*/
-   
+  }  
 }

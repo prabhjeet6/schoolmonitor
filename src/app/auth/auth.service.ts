@@ -23,7 +23,7 @@ export class AuthService {
   private loginUrl = 'http://localhost:8088/auth/signin';
   requestBody: string;
   
-  //broadcastingChannel = new BroadcastChannel('auth');
+  
   constructor(@Inject(BROADCAST_CHANNEL_INJECTION_TOKEN) private broadCastService: BroadcastService,private messageService:MessageService,public jwtHelper: JwtHelperService, private http: HttpClient, private router: Router) { }
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('userToken');
@@ -59,9 +59,9 @@ export class AuthService {
       payload: 'logOut'
     })
       localStorage.clear();
-      //this.broadcastingChannel.postMessage({ cmd: 'logOut' });
+     
       
       this.router.navigateByUrl('/Login');
-      //this.broadcastingChannel.close();
+     
   }
 }
