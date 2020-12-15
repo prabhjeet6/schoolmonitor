@@ -1,2 +1,19 @@
-this works!
-<app-messages></app-messages>
+<div>
+    <app-header></app-header>
+        <br>
+        <br>
+        <div class="text-center">
+            <h2 class="searchHeader">CourseFinder</h2>
+            <br>
+        </div>    
+            <div class="container container-padding50">
+                <input type="text" class="js-userinput container-textinput"  id="searchText" aria-describedby="searchText" placeholder="Enter Details To Search.."
+                />
+                <button  mat-button class='searchbutton' color="accent">search</button>
+            </div>
+               
+                <!--<img class="searchforcourses" src="../assets/SearchForCourses.svg" />-->
+            
+    <app-messages></app-messages>
+    <app-footer class="fixed-bottom"></app-footer>
+</div>

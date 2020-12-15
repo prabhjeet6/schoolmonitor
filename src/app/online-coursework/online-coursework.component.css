@@ -1,0 +1,35 @@
+.searchHeader{
+    font-family: 'Moon-Bold';
+    color:darkblue;
+    align-self: center
+}
+.searchbutton{
+    float: right;
+}
+
+/*.searchforcourses{
+    max-width: 42%;
+    max-height: 42%;
+    float: right;
+    margin-bottom: 12%;
+    margin-right: 0;
+}*/
+
+.container-padding50 {
+    position: relative;              
+    padding-top: 50px;
+    height: 80px;                    
+  }
+  
+  .container-textinput {
+    position: absolute;              
+    left: 50%;
+    transform: translateX(-50%);     
+    text-align: center;
+    width: 80%;
+    padding: 20px;
+    font-size: 16px;
+    font-family: 'Moon-Bold';
+    border: none;
+    border-bottom: 2px solid black;
+  }
