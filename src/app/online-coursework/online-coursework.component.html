@@ -7,13 +7,19 @@
             <br>
         </div>    
             <div class="container container-padding50">
-                <input type="text" class="js-userinput container-textinput"  id="searchText" aria-describedby="searchText" placeholder="Enter Details To Search.."
+                <input (keyup.enter)="search()" [(ngModel)]="searchTerm" (keydown.enter)="search()"type="text" class="js-userinput container-textinput"  id="searchText" aria-describedby="searchText" placeholder="Enter Details To Search.."
                 />
-                <button  mat-button class='searchbutton' color="accent">search</button>
+                <button (click)="search()" mat-button class='searchbutton' color="accent">search</button>
             </div>
                
                 <!--<img class="searchforcourses" src="../assets/SearchForCourses.svg" />-->
-            
+                <div *ngIf="resultsReturned==true">
+                    <li *ngFor="let result of results">
+                                
+                         <img [src]="result.Thumbnail" width="200px" height="200px" />     
+                    </li>
+                </div>
+
     <app-messages></app-messages>
     <app-footer class="fixed-bottom"></app-footer>
 </div>

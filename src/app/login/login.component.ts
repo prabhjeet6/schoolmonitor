@@ -9,7 +9,7 @@ import { LoginCredentials } from '../login-credentials';
 import { Injectable } from '@angular/core';
 import { AbstractControl,FormGroup, FormControl, Validators } from '@angular/forms';
 import { String, StringBuilder } from 'typescript-string-operations';
-import{SpinnerService} from '../service/spinner.service';
+
 /**@author Prabhjeet Singh */
 @Component({
   selector: 'app-login',
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       ]),
     password: new FormControl('', [Validators.required])
   });
-  constructor(public spinner:SpinnerService,public auth: AuthService, public utils: UtilsService, public router: Router) {
+  constructor(public auth: AuthService, public utils: UtilsService, public router: Router) {
     this.loginCredentials = new LoginCredentials();
   
   }
