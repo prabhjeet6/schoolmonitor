@@ -35,6 +35,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {CaptchaModule} from 'primeng/captcha';
 import { MessagesComponent } from './messages/messages.component';
 import { SearchUXDirective } from './directives/search-ux.directive';
+import { PlayVideoDirective } from './directives/play-video.directive';
 
 
 
@@ -59,6 +60,7 @@ export function tokenGetter() {
     ResetPasswordComponent,
     MessagesComponent,
     SearchUXDirective,
+    PlayVideoDirective,
    
    
     

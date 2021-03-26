@@ -1,24 +1,27 @@
 <div>
     <app-header></app-header>
+    <br>
+    <br>
+    <div class="text-center">
+        <h2 class="searchHeader">CourseFinder</h2>
         <br>
-        <br>
-        <div class="text-center">
-            <h2 class="searchHeader">CourseFinder</h2>
-            <br>
-        </div>    
-            <div class="container container-padding50">
-                <input (keyup.enter)="search()" [(ngModel)]="searchTerm" (keydown.enter)="search()"type="text" class="js-userinput container-textinput"  id="searchText" aria-describedby="searchText" placeholder="Enter Details To Search.."
-                />
-                <button (click)="search()" mat-button class='searchbutton' color="accent">search</button>
+    </div>
+    <div  id="searchBar" class="container container-padding50">
+        <input (keyup.enter)="search()" [(ngModel)]="searchTerm" (keydown.enter)="search()" type="text" class="js-userinput container-textinput"
+            id="searchText" aria-describedby="searchText" placeholder="Enter Details To Search.." />
+        <button appSearchUX (click)="search()" mat-button class='searchbutton' color="accent">search</button>
+    </div>
+
+    <!--<img class="searchforcourses" src="../assets/SearchForCourses.svg" />-->
+    <div *ngIf="resultsReturned===true">
+        <div class="row">
+             <div  *ngFor="let result of results"> 
+              <div class="column" style="width:100%">
+                <img appPlayVideo [clickedVideo]="result.url" class="Thumbnail" [src]="result.Thumbnail"  width="200px" height="200px" />
+             </div>
             </div>
-               
-                <!--<img class="searchforcourses" src="../assets/SearchForCourses.svg" />-->
-                <div *ngIf="resultsReturned==true">
-                    <li *ngFor="let result of results">
-                                
-                         <img [src]="result.Thumbnail" width="200px" height="200px" />     
-                    </li>
-                </div>
+        </div>
+    </div>    
 
     <app-messages></app-messages>
     <app-footer class="fixed-bottom"></app-footer>
