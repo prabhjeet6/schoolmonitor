@@ -59,4 +59,14 @@
   .Thumbnail{
     float: center;
     margin-left: 20%;
+     
   }
+
+  .wrapper {
+    min-height: 100%;
+    height: 100%;
+    margin: 0 auto -255px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 255px; /* .push must be the same height as .footer */
+}
