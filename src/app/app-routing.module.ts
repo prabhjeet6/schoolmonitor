@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'OnlineCoursework', component: OnlineCourseworkComponent, canActivate: [AuthGuard], canDeactivate: [AuthGuard] },
 
   { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard], canDeactivate: [AuthGuard] },
-    { path: '', redirectTo: '/Login', pathMatch: 'full' },
+  { path: '', redirectTo: '/Login', pathMatch: 'full' },
   { path: 'Login', component: LoginComponent, canDeactivate: [AuthGuard] },
   { path: 'PageNotFound', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/PageNotFound', pathMatch: 'full' }

@@ -18,6 +18,7 @@ export class OnlineCourseworkComponent implements OnInit {
   searchTerm: string;
 
   ngOnInit() {
+    
   }
 
   search() {
@@ -28,10 +29,10 @@ export class OnlineCourseworkComponent implements OnInit {
   
 
   postSearch() {
-    if (null != this.results)
+    if (this.results[0])
       this.resultsReturned = true;
-    else this.router.navigateByUrl('/PageNotFound');
-   //TODO:  
+    else this.resultsReturned=false;
+    
   }
 
 }

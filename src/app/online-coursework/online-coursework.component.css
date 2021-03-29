@@ -70,3 +70,12 @@
 .footer, .push {
     height: 255px; /* .push must be the same height as .footer */
 }
+
+.emptyResult{
+  text-align: center;
+  float:center
+}
+.emptyResultImage{
+  width: 35%;
+  height: 35%;
+}

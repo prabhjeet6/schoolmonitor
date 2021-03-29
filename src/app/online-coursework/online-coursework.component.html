@@ -21,8 +21,15 @@
              </div>
             </div>
         </div>
-        
-    </div>    
+    </div>
+    <div class="emptyResult" *ngIf="resultsReturned===false">
+            <img class="emptyResultImage" src="../assets/EmptyResult.svg" />  
+            <alert type="warning">
+                    Hmmm...<br>
+                    We could not find any matches for your search.
+                  </alert>
+        </div>    
+
     <div class="push"></div>
     <app-messages></app-messages>
     <app-footer class="footer"></app-footer>
