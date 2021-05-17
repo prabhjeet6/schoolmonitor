@@ -9,7 +9,9 @@
             "request": "launch",
             "name": "Launch Chrome",
             "url": "http://localhost:4000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            
+             
         },
   
         {
@@ -20,7 +22,8 @@
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/dist/out-tsc/**/*.js"
-            ]
+            ],
+            
         }
     ]
 }

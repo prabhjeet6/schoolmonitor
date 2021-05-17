@@ -11,7 +11,7 @@ import {BroadcastService} from './../service/broadcast.service';
 import {BROADCAST_CHANNEL_INJECTION_TOKEN} from './../app.token';
 
 declare var require: any;
-const { BroadcastChannel } = require('broadcast-channel');
+//const  {BroadcastChannel}  = require('broadcast-channel');
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };

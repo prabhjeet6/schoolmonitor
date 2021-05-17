@@ -14,10 +14,12 @@
 
     <!--<img class="searchforcourses" src="../assets/SearchForCourses.svg" />-->
     <div *ngIf="resultsReturned===true">
-        <div class="row">
-             <div  *ngFor="let result of results"> 
+            <pagination  [totalItems]="result.totalNumberOfRecords" [itemsPerPage]="2"   (pageChanged)="pageChanged($event)" ></pagination>
+      
+          <div class="row">
+             <div  *ngFor="let resultUnit of results"> 
               <div class="column" style="width:100%">
-                <img appPlayVideo [clickedVideo]="result.url" class="Thumbnail" [src]="result.Thumbnail"  width="200px" height="200px" />
+                <img appPlayVideo [clickedVideo]="resultUnit.url" class="Thumbnail" [src]="resultUnit.Thumbnail"  width="200px" height="200px" />
              </div>
             </div>
         </div>

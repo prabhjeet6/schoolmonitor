@@ -7,7 +7,7 @@ import {BROADCAST_CHANNEL_INJECTION_TOKEN} from './../app.token';
 import{BroadcastService} from './../service/broadcast.service';
 
 declare var require: any;
-const { BroadcastChannel } = require('broadcast-channel');
+//const { BroadcastChannel } = require('broadcast-channel');
 
 @Component({
   selector: 'app-dashboard',

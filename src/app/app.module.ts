@@ -14,12 +14,11 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { JwtModule } from "@auth0/angular-jwt";
-
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { AuthGuardService } from './auth-guard.service';
 import { NgOtpInputModule } from  'ng-otp-input';
 import { MatGridListModule, MatMenuModule, MatFormFieldModule,MatIconModule, MatButtonModule,MatToolbarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
-
 import {FileUploadModule} from 'primeng/fileupload';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { OnlineCourseworkComponent } from './online-coursework/online-coursework.component';
@@ -30,14 +29,11 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {PortalModule} from '@angular/cdk/portal';
-
 import {MatSelectModule} from '@angular/material/select';
 import {CaptchaModule} from 'primeng/captcha';
 import { MessagesComponent } from './messages/messages.component';
 import { SearchUXDirective } from './directives/search-ux.directive';
 import { PlayVideoDirective } from './directives/play-video.directive';
-
-
 
 export function tokenGetter() {
   return localStorage.getItem("userToken");
@@ -46,11 +42,7 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     LoginComponent,
-    
-    
     DashboardComponent,
-   
-    
     AdminConsoleComponent,
     OnlineCourseworkComponent,
     FooterComponent,
@@ -61,22 +53,14 @@ export function tokenGetter() {
     MessagesComponent,
     SearchUXDirective,
     PlayVideoDirective,
-   
-   
-    
-   
-   
-    
-    
   ],
   imports: [
+    PaginationModule.forRoot(),
     FileUploadModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     ReactiveFormsModule ,
     HttpClientModule,
     FormsModule,
-     
-  
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -94,15 +78,10 @@ export function tokenGetter() {
         blacklistedRoutes: []
       }
     }),
-
      MatGridListModule,
-
      MatMenuModule,
-
      MatIconModule,
-
      MatButtonModule,
-
      LayoutModule,
      PortalModule,
      MatSelectModule,
