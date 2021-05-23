@@ -5,15 +5,10 @@
 }
 .searchbutton{
     float: right;
+    margin-left: 10%;
 }
 
-/*.searchforcourses{
-    max-width: 42%;
-    max-height: 42%;
-    float: right;
-    margin-bottom: 12%;
-    margin-right: 0;
-}*/
+
 
 .container-padding50 {
     position: relative;              
@@ -54,6 +49,20 @@
     .column {
       width: 100%;
     }
+  }
+
+  .mic{
+    transform:scale(1.5);
+      
+  }
+  .micButton{
+    float: right;
+    margin-right: -4%;
+    position: relative;
+    background-color: white;
+    padding: 0;
+    border: none;
+    background: none;
   }
 
   .Thumbnail{

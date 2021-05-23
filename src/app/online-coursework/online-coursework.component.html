@@ -6,31 +6,32 @@
         <h2 class="searchHeader">CourseFinder</h2>
         <br>
     </div>
-    <div  id="searchBar" class="container container-padding50">
+    <div id="searchBar" class="container container-padding50">
         <input (keyup.enter)="search()" [(ngModel)]="searchTerm" (keydown.enter)="search()" type="text" class="js-userinput container-textinput"
             id="searchText" aria-describedby="searchText" placeholder="Enter Details To Search.." />
-        <button appSearchUX (click)="search()" mat-button class='searchbutton' color="accent">search</button>
-    </div>
-
-    <!--<img class="searchforcourses" src="../assets/SearchForCourses.svg" />-->
+       
+        <div class="text-right" >
+            <button appSearchUX class="micButton" (click)="convertSpeechToText()"><img class="mic" src="../assets/Mic.svg" /></button>
+            <button appSearchUX (click)="search()" mat-button class='searchbutton' color="accent">search</button>
+        </div>
+        </div>
     <div *ngIf="resultsReturned===true">
-            <pagination  [totalItems]="result.totalNumberOfRecords" [itemsPerPage]="2"   (pageChanged)="pageChanged($event)" ></pagination>
-      
-          <div class="row">
-             <div  *ngFor="let resultUnit of results"> 
+        <pagination [totalItems]="result.totalNumberOfRecords" [itemsPerPage]="2" (pageChanged)="pageChanged($event)"></pagination>
+        <div class="row">
+            <div *ngFor="let resultUnit of results">
               <div class="column" style="width:100%">
-                <img appPlayVideo [clickedVideo]="resultUnit.url" class="Thumbnail" [src]="resultUnit.Thumbnail"  width="200px" height="200px" />
-             </div>
+                    <img appPlayVideo [clickedVideo]="resultUnit.url" class="Thumbnail" [src]="resultUnit.Thumbnail" width="200px" height="200px"/>
+              </div>
             </div>
         </div>
     </div>
     <div class="emptyResult" *ngIf="resultsReturned===false">
-            <img class="emptyResultImage" src="../assets/EmptyResult.svg" />  
-            <alert type="warning">
-                    Hmmm...<br>
-                    We could not find any matches for your search.
-                  </alert>
-        </div>    
+        <img class="emptyResultImage" src="../assets/EmptyResult.svg" />
+        <alert type="warning">
+            Hmmm...
+            <br> We could not find any matches for your search.
+        </alert>
+    </div>
 
     <div class="push"></div>
     <app-messages></app-messages>
