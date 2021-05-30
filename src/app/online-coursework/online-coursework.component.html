@@ -7,25 +7,32 @@
         <br>
     </div>
     <div id="searchBar" class="container container-padding50">
+
         <input (keyup.enter)="search()" [(ngModel)]="searchTerm" (keydown.enter)="search()" type="text" class="js-userinput container-textinput"
             id="searchText" aria-describedby="searchText" placeholder="Enter Details To Search.." />
-       
-        <div class="text-right" >
-            <button appSearchUX class="micButton" (click)="convertSpeechToText()"><img class="mic" src="../assets/Mic.svg" /></button>
-            <button appSearchUX (click)="search()" mat-button class='searchbutton' color="accent">search</button>
+
+        <div class="text-right">
+            <button appSearchUX class="micButton" (click)="convertSpeechToTextAndSearch()">
+                <img class="mic" src="../assets/Mic.svg" />
+            </button>
+            <button appSearchUX (click)="search()" mat-button class='searchbutton' id='searchbutton' color="accent">search</button>
         </div>
-        </div>
+    </div>
     <div *ngIf="resultsReturned===true">
         <pagination [totalItems]="result.totalNumberOfRecords" [itemsPerPage]="2" (pageChanged)="pageChanged($event)"></pagination>
         <div class="row">
             <div *ngFor="let resultUnit of results">
-              <div class="column" style="width:100%">
-                    <img appPlayVideo [clickedVideo]="resultUnit.url" class="Thumbnail" [src]="resultUnit.Thumbnail" width="200px" height="200px"/>
-              </div>
+                <div class="column" style="width:100%">
+                    <img appPlayVideo [clickedVideo]="resultUnit.url" class="Thumbnail" [src]="resultUnit.Thumbnail" width="200px" height="200px"
+                    />
+                </div>
             </div>
         </div>
     </div>
     <div class="emptyResult" *ngIf="resultsReturned===false">
+        <br>
+        <br>
+        <br>
         <img class="emptyResultImage" src="../assets/EmptyResult.svg" />
         <alert type="warning">
             Hmmm...
