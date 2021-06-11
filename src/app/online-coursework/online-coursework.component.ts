@@ -58,20 +58,20 @@ export class OnlineCourseworkComponent implements OnInit {
     recognition.start();
     var resultArrived: boolean = false;
 
-    recognition.onresult =  (event)=> {
+    recognition.onresult = (event) => {
       var speechResult: string = event.results[0][0].transcript.toLowerCase();
       document.getElementsByTagName("input")[0].value = speechResult;
       this.searchTerm = speechResult;
 
       var searchbutton = document.getElementsByTagName("input")[0].nextSibling.lastChild as HTMLElement
       searchbutton.click();
-      
+
     }
 
     recognition.onspeechend = function () {
       recognition.stop();
     }
-     
+
   }
 
 
@@ -90,10 +90,8 @@ export class OnlineCourseworkComponent implements OnInit {
   }
 
 
-  search(): void {
-    console.log('inside ' + this.searchTerm );
+  search(): void { 
     if (this.searchTerm) {
-      console.log('inside ' + this.searchTerm);
       this.subscriptionObject = this.onlineCourseworkService.search(this.searchTerm, this.page).subscribe(
         x => { setTimeout(() => { this.result = x; this.postSearch(); }, 2000); }, err => { }, () => this.subscriptionObject.unsubscribe);
     }

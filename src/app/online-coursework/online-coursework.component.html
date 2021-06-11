@@ -19,6 +19,9 @@
         </div>
     </div>
     <div *ngIf="resultsReturned===true">
+            <br>
+            <br>
+            <br>
         <pagination [totalItems]="result.totalNumberOfRecords" [itemsPerPage]="2" (pageChanged)="pageChanged($event)"></pagination>
         <div class="row">
             <div *ngFor="let resultUnit of results">
