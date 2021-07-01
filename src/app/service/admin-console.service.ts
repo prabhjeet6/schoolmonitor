@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+import { Constants } from '../utils/constants';
 @Injectable({
   providedIn: 'root'
 })
 export class AdminConsoleService {
+  constructor(private http: HttpClient,private constants:Constants) { }
+
+  fileUploadUrl: string = 'http://'+this.constants.host+'/schoolmonitor/studentDataUpload';
   
-  fileUploadUrl: string = 'http://localhost:8088/schoolmonitor/studentDataUpload';
-  
-  constructor(private http: HttpClient) { }
-  /** Accept header is a way for a client to specify the media type of the
+    /** Accept header is a way for a client to specify the media type of the
    *  response content it is expecting and Content-type is a way to specify
    *  the media type of request being sent from the client to the server.
    *  

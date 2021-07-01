@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { PasswordRecoveryModel } from '../model/password-recovery-model';
 import { ChangePasswordModel } from '../model/change-password-model';
+import { Constants } from '../utils/constants';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,12 +14,13 @@ const httpOptions = {
 })
 
 export class ResetPasswordService {
+  
   OTPrequestBody:any;
-  private schoolDomainsUrl = 'http://localhost:8088/schoolmonitor/schoolDomains';
-  private otpGenerationUrl='http://localhost:8088/auth/OneTimePassword';
-  private changePasswordUrl='http://localhost:8088/auth/changePassword';
+  private schoolDomainsUrl = 'http://'+this.constants.host+'/schoolmonitor/schoolDomains';
+  private otpGenerationUrl='http://'+this.constants.host+'/auth/OneTimePassword';
+  private changePasswordUrl='http://'+this.constants.host+'/auth/changePassword';
   private captchaVerificationUrl='https://www.google.com/recaptcha/api/siteverify';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private constants:Constants) { }
   getSchoolDomains():Observable<string[]>{
     return this.http.get<string[]>(this.schoolDomainsUrl);
   }

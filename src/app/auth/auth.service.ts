@@ -9,6 +9,7 @@ import { HttpParams } from '@angular/common/http/src/params';
 import {MessageService} from '../service/message.service';
 import {BroadcastService} from './../service/broadcast.service';
 import {BROADCAST_CHANNEL_INJECTION_TOKEN} from './../app.token';
+import { Constants } from '../utils/constants';
 
 declare var require: any;
 //const  {BroadcastChannel}  = require('broadcast-channel');
@@ -20,11 +21,11 @@ const httpOptions = {
 })
 export class AuthService {
   redirectUrl: string;
-  private loginUrl = 'http://localhost:8088/auth/signin';
+  private loginUrl = 'http://'+this.constants.host+'/auth/signin';
   requestBody: string;
   
   
-  constructor(@Inject(BROADCAST_CHANNEL_INJECTION_TOKEN) private broadCastService: BroadcastService,private messageService:MessageService,public jwtHelper: JwtHelperService, private http: HttpClient, private router: Router) { }
+  constructor(@Inject(BROADCAST_CHANNEL_INJECTION_TOKEN) private broadCastService: BroadcastService,private constants:Constants,private messageService:MessageService,public jwtHelper: JwtHelperService, private http: HttpClient, private router: Router) { }
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('userToken');
     return !this.jwtHelper.isTokenExpired(token);
