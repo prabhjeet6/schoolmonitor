@@ -18,24 +18,28 @@
 .btn {
   width: 100%;
 }
-alert-link{
+.alert-link{
   width: 100%;
 }
   .main-div{
-    height: 100vh;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align:center;
-    margin: -7%;
+    margin-bottom: 11.5%
 
-    /*background-repeat: no-repeat;
-    background-size:auto 45pc;
-    background-position:center;
-    background-image: url("/assets/404.png");*/
+    
   }
- 
-  img 
+  .mat-custom-card{
+    height: 45vh;
+    width:30vw;
+     overflow: auto;
+     resize:both;
+  
+     
+  }
+  .img 
   {
     width: 55%;
     height: 55%;
@@ -45,13 +49,18 @@ alert-link{
     /*margin-top: 15%;*/
     border-radius: 25%;
    background-color:whitesmoke; 
+   
     
   }
-  footer{
+  .image{
+    max-width: 100%;
+  height: auto;
+  }
+  .footer{
     text-align: center;
     font-family: 'Moon-Bold';
   }
-  card{
+  .card{
     position: relative;
      float: left;  
   }
