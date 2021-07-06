@@ -4,9 +4,8 @@
 }
 .img-div 
   {
-    width: 45vw;
-    height: 45vh;
-    /*float:  left;*/ 
+    width: 46vw;
+    height: 46vh;
     border-radius: 25%;
    background-color:whitesmoke;   
   }
@@ -14,5 +13,5 @@
   max-width: 100%;
   height: auto;
 }  
- 
+
   
