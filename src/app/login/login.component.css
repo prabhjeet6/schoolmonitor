@@ -1,83 +1,18 @@
-
-  
- 
-  .login-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-    
-    
-  }
-  .login-full-width {
-    width: 100%;
-  }
-  .center{
-    width: 30%;
-    margin: 10px auto;
-  }
-.btn {
-  width: 100%;
+.introHeader{
+  font-family: 'Moon-Bold';
+  color:darkblue;
 }
-.alert-link{
-  width: 100%;
-}
-  .main-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align:center;
-    margin-bottom: 11.5%
-
-    
-  }
-  .mat-custom-card{
-    height: 45vh;
-    width:30vw;
-     overflow: auto;
-     resize:both;
-  
-     
-  }
-  .img 
+.img-div 
   {
-    width: 55%;
-    height: 55%;
-    float:  left; 
-    
-    
-    /*margin-top: 15%;*/
+    width: 45vw;
+    height: 45vh;
+    /*float:  left;*/ 
     border-radius: 25%;
-   background-color:whitesmoke; 
-   
-    
+   background-color:whitesmoke;   
   }
-  .image{
-    max-width: 100%;
+.image{
+  max-width: 100%;
   height: auto;
-  }
-  .footer{
-    text-align: center;
-    font-family: 'Moon-Bold';
-  }
-  .card{
-    position: relative;
-     float: left;  
-  }
-  .introHeader{
-    font-family: 'Moon-Bold';
-    color:darkblue;
-    
-    
-    
-  }
- .Loader{
-   background-color: white;
-   width: 22%;
-   height: 22%;
-   
-   margin-left: 35%;
-   margin-right: 20%;
-   margin-bottom: 32%;
-   margin-top: 18%;
- } 
+}  
+ 
+  

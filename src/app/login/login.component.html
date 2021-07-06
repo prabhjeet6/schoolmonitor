@@ -1,4 +1,4 @@
-<div>
+<div class="container-fluid">
 
  <div *ngIf="!loadingStatus">
         <app-header></app-header>
@@ -12,9 +12,12 @@
                         <br/>to get a digital experience
                         <br/>of your school</h2>
         </div>
-        <div class="img">
+        <div class="row">
+         <div class="col-xs-6">       
+        <div class="img-div">
                 <img class="image"src="../assets/LogIn.svg" />
         </div>
+         </div>
         <div class="main-div">
                 <div class="card">
                         <mat-card class="z-depth-3 mat-custom-card" flex="50">
@@ -79,7 +82,7 @@
                         </mat-card>
                 </div>
         </div>
-
+        </div>
         <app-footer></app-footer>
 </div>
 
