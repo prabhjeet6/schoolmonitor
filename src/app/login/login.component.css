@@ -4,8 +4,8 @@
 }
 .img-div 
   {
-    width: 46vw;
-    height: 46vh;
+    width: 40vw;
+    height: 40vh;
     border-radius: 25%;
    background-color:whitesmoke;   
   }
@@ -13,7 +13,13 @@
   max-width: 100%;
   height: auto;
 }  
-.login-full-width{
+.login-field-width{
   width:30vw;
 }
-  
+.card{
+  width: 40vw;
+    height: 40vh;
+}
+.footer{
+  margin-top: 8vh;
+}  

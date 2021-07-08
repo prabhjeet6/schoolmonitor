@@ -16,16 +16,16 @@
          <div class="col-xs-6 mt-5 mb-5 mx-5">  
                     
         <div class="img-div">
-                <img class="image"src="../assets/LogIn.svg" />
+                <img class="image"src="../assets/LogIn.svg"  />
         </div>
          </div>
-        <div class="col-xs-6  mt-5 mb-5 ">
-                <div >
-                        <mat-card class="  z-depth-3 " flex="50">
+        <div class="col-xs-6  mx-5 mt-5 mb-5 ">
+                <div class="card">
+                        <mat-card class="  z-depth-3 "  >
                                         
                                 <mat-card-header>
                                         <mat-card-title>
-                                                <p i18n class="text-center" style="font-family: Moon-Bold;">Welcome to SchoolMonitor!</p>
+                                                <p i18n class="text-center" style="font-family: Moon-Bold;width:30vw;">Welcome to SchoolMonitor!</p>
                                         </mat-card-title>
                                         
                                 </mat-card-header>
@@ -33,7 +33,7 @@
                                 <mat-card-content>
                                         <form [formGroup]="loginForm">
                                                 <div class="form-group">
-                                                        <mat-form-field class="login-full-width">
+                                                        <mat-form-field class="login-field-width">
                                                                 <input   (Keyup.enter)="login()" formControlName="Username" [class.is-invalid]="loginForm.get('Username').invalid && loginForm.get('Username').touched"
                                                                         (keydown.enter)="login()" matInput i18n-placeholder placeholder="Username"
                                                                         type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain"
@@ -41,7 +41,7 @@
                                                         </mat-form-field>
                                                 </div>
                                                 <div class="form-group">
-                                                        <mat-form-field class="login-full-width" >
+                                                        <mat-form-field class="login-field-width" >
                                                                 <input  (Keyup.enter)="login()" formControlName="password" [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched"
                                                                         (keydown.enter)="login()" matInput type="password" i18n-placeholder placeholder="password"
                                                                         [(ngModel)]="password" name="password" />
@@ -52,7 +52,7 @@
                                 <mat-card-actions>
                                         <button i18n type="button" class="btn btn-info btn-xl btn-block" tooltip="Login to enter Home Page" (click)="login()"> Login </button>
                                         <a [routerLink]="['/ResetPassword']">
-                                                <button i18n mat-button color="accent" class="btn-block">Forgot Password?</button>
+                                                <button i18n mat-button color="accent" style="width:30vw;" class="btn-block">Forgot Password?</button>
                                         </a>
 
                                         <div *ngIf="loginStatus!=undefined && loginStatus ">
@@ -87,14 +87,12 @@
         </div>
         </div>
            
-              <div >
-                      <div class="row">
-                              <div class="col mt-5">
-        <app-footer  ></app-footer>
-                              </div>
+              
+                      <div class="row">         
+                        <app-footer class="col-xs-12 m-auto" ></app-footer>         
                       </div>
 
-</div>
+
 </div>
 
 <div *ngIf="loadingStatus">
