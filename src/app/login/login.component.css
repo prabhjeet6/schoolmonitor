@@ -24,5 +24,16 @@
     
 }
 .footer{
-  margin-top: 8vh;
+  margin-top: 20vh;
+  
+  flex-direction: column;
 }  
+.flex-container{
+  display: flex;
+}
+.flex-content{
+  
+    flex: 50%;
+    padding: 5px;
+  
+} 
