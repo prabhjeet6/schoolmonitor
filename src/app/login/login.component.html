@@ -1,9 +1,9 @@
-<div>
+<div >
 
  <div *ngIf="!loadingStatus">
-        <app-header></app-header>
-        <app-messages></app-messages>
-        <div class="text-center">
+        <app-header  ></app-header>
+        <app-messages ></app-messages>
+        <div class="text-center container-fluid">
                 <br/>
                 <br/>
                 <br/>
@@ -12,32 +12,37 @@
                         <br/>to get a digital experience
                         <br/>of your school</h2>
         </div>
-        <div class="img">
-                <img class="image"src="../assets/LogIn.svg" />
+        <div class="flex-container" >
+         <div class="flex-content mt-5 mb-5 mx-5">  
+                    
+        <div class="img-div">
+                <img class="image"src="../assets/LogIn.svg"  />
         </div>
-        <div class="main-div">
+         </div>
+        <div class="  mx-5 mt-5 mb-5 ">
                 <div class="card">
-                        <mat-card class="z-depth-3 mat-custom-card" flex="50">
+                        <mat-card class="  z-depth-3 "  >
+                                        
                                 <mat-card-header>
                                         <mat-card-title>
-                                                <p i18n class="text-center">Welcome to SchoolMonitor!</p>
+                                                <p i18n class="text-center" style="font-family: Moon-Bold;width:30vw;">Welcome to SchoolMonitor!</p>
                                         </mat-card-title>
-                                        <!-- Sign to get a digital experience of your school.-->
+                                        
                                 </mat-card-header>
-                                <!--<img mat-card-image src="../assets/Logo2.PNG" alt="Logo" style="width:10%">-->
+                                
                                 <mat-card-content>
-                                        <form class="login-form" [formGroup]="loginForm">
+                                        <form [formGroup]="loginForm">
                                                 <div class="form-group">
-                                                        <mat-form-field class="login-full-width">
-                                                                <input (Keyup.enter)="login()" formControlName="Username" [class.is-invalid]="loginForm.get('Username').invalid && loginForm.get('Username').touched"
+                                                        <mat-form-field class="login-field-width">
+                                                                <input   (Keyup.enter)="login()" formControlName="Username" [class.is-invalid]="loginForm.get('Username').invalid && loginForm.get('Username').touched"
                                                                         (keydown.enter)="login()" matInput i18n-placeholder placeholder="Username"
                                                                         type="text" [(ngModel)]="userNameWithDomain" name="userNameWithDomain"
                                                                 />
                                                         </mat-form-field>
                                                 </div>
                                                 <div class="form-group">
-                                                        <mat-form-field class="login-full-width">
-                                                                <input (Keyup.enter)="login()" formControlName="password" [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched"
+                                                        <mat-form-field class="login-field-width" >
+                                                                <input  (Keyup.enter)="login()" formControlName="password" [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched"
                                                                         (keydown.enter)="login()" matInput type="password" i18n-placeholder placeholder="password"
                                                                         [(ngModel)]="password" name="password" />
                                                         </mat-form-field>
@@ -45,9 +50,9 @@
                                         </form>
                                 </mat-card-content>
                                 <mat-card-actions>
-                                        <button i18n type="button" class="btn btn-info btn-xl" tooltip="Login to enter Home Page" (click)="login()"> Login </button>
+                                        <button i18n type="button" class="btn btn-info btn-xl btn-block" tooltip="Login to enter Home Page" (click)="login()"> Login </button>
                                         <a [routerLink]="['/ResetPassword']">
-                                                <button i18n mat-button color="accent">Forgot Password?</button>
+                                                <button i18n mat-button color="accent" style="width:30vw;" class="btn-block">Forgot Password?</button>
                                         </a>
 
                                         <div *ngIf="loginStatus!=undefined && loginStatus ">
@@ -76,11 +81,20 @@
                                         </div>
 
                                 </mat-card-actions>
+                                        
                         </mat-card>
                 </div>
         </div>
+        </div>
+           
+              
+                      <div class="row">     
+                              
+                        
+                        <app-footer class="col-xs-12 m-auto footer" ></app-footer>         
+                      </div>
 
-        <app-footer></app-footer>
+
 </div>
 
 <div *ngIf="loadingStatus">
