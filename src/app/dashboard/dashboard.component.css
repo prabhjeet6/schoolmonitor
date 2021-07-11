@@ -1,40 +1,7 @@
 
 space{
   margin: 20%;
-}
-.flex-content{
-  
-  flex: 50%;
-  padding: 5px;
-
-} 
- 
-   
-    .main-div{
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align:center;
-  
-      /*background-repeat: no-repeat;
-      background-size:auto 45pc;
-      background-position:center;
-      background-image: url("/assets/404.png");*/
-    }
-    /*img 
-    {
-      display:inline-block;
-    }*/
-    
-   /* .fill-remaining-space {
-      
-      flex: 1 1 auto;
-    }*/
-   
-
-
-   
+}   
     .admin-form {
       min-width: 150px;
       max-width: 500px;
@@ -45,8 +12,8 @@ space{
       width: 100%;
     }
     img{
-      width:40vw;
-      height: 40vh;
+      width:30vw;
+      height: 30vh;
     }
     .image{
       max-width: 100%;
@@ -63,9 +30,4 @@ space{
     .coursework-full-width {
       width: 100%;
     }
-    .flex-content{
-  
-      flex: 0 1 auto;
-      padding: 5px;
-    
-  } 
+   
