@@ -1,47 +1,44 @@
 <div>
-  <app-header></app-header>
-
-  <div fxLayout="row wrap" class="container-fluid">
-
-    <div class="row">
-      <div class="col-xs-6 mr-5 ml-5 mb-5 mt-5">
-
-        <a routerLink='/OnlineCoursework'>
-          
-            <mat-card class="z-depth-3  " flex="50">
-              <mat-card-header>
-                <mat-card-title>
-                  <p i18n class="text-center">Online CourseWork</p>
-                </mat-card-title>
-              </mat-card-header>
-              <div class="img">
-                <img class="image" mat-card-image src="../assets/OnlineTutorials.svg">
-              </div>
-            </mat-card>
-          
-        </a>
-
+    <app-header></app-header>
+    <div fxLayout="row wrap" class="container-fluid">
+      <div class="row">
+        <div class="col-xs-6 mr-5 ml-5 mb-5 mt-5 ">
+          <a routerLink='/OnlineCoursework'>
+              <mat-card class="z-depth-3 flex-container " flex="50">
+                <mat-card-header>
+                  <mat-card-title class=" flex-content-title">
+                    <p i18n class="text-center ">Online CourseWork</p>
+                  </mat-card-title>
+                </mat-card-header>
+                <div class="img mt-5" >
+                  <img class="image flex-content " mat-card-image src="../assets/OnlineTutorials.svg">
+                </div>
+              </mat-card>
+            
+          </a>
+  
+  
+        </div>
+  
+        <div class="col-xs-6  mr-5 ml-5 mb-5 mt-5  ">
+          <a routerLink='/AdminConsole'>
+            
+              <mat-card class="z-depth-3 flex-container" flex="50">
+                <mat-card-header>
+                  <mat-card-title class=" flex-content-title ">
+                    <p i18n class=" text-center ">Admin Console</p>
+                  </mat-card-title>
+                </mat-card-header>
+                <div class="img mt-5 " >
+                  <img class="image flex-content" mat-card-image src="../../assets/AdminDataUpload.svg">
+                </div>
+              </mat-card>
+            
+          </a>
+        </div>
+  
       </div>
-
-      <div class="col-xs-6  mr-5 ml-5 mb-5 mt-5">
-        <a routerLink='/AdminConsole'>
-          
-            <mat-card class="z-depth-3" flex="50">
-              <mat-card-header>
-                <mat-card-title>
-                  <p i18n>Admin Console</p>
-                </mat-card-title>
-              </mat-card-header>
-              <div class="img">
-                <img class="image" mat-card-image src="../../assets/AdminDataUpload.svg">
-              </div>
-            </mat-card>
-          
-        </a>
-      </div>
-
     </div>
+    <app-messages></app-messages>
+    <app-footer></app-footer>
   </div>
-  <app-messages></app-messages>
-  <app-footer></app-footer>
-</div>

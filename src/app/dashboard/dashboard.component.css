@@ -1,19 +1,7 @@
 
-space{
-  margin: 20%;
-}   
-    .admin-form {
-      min-width: 150px;
-      max-width: 500px;
-      width: 100%;
-      
-    }
-    .admin-full-width {
-      width: 100%;
-    }
     img{
-      width:30vw;
-      height: 30vh;
+      width:20vw;
+      height: 20vh;
     }
     .image{
       max-width: 100%;
@@ -21,13 +9,24 @@ space{
      
     } 
   
-    .coursework-form {
-      min-width: 150px;
-      max-width: 500px;
-      width: 100%;
+    .flex-container{
+      display: flex;
+      width:38vw;
+      height: 38vh;
+    }
+    .flex-content{
+      
+        height:20vh;
+        width:20vw;
+        padding: 5px;
       
     }
-    .coursework-full-width {
-      width: 100%;
-    }
+    .flex-content-title{
+      
+      height:12vh;
+      width:12vw;
+      
+    
+  }
    
+    
